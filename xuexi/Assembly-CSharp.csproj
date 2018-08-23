@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\src\Level.cs" />
      <Compile Include="Assets\Scripts\src\LevelController.cs" />
      <Compile Include="Assets\Scripts\src\Tool.cs" />
+     <Compile Include="Assets\Scripts\src\TowerBase.cs" />
      <Compile Include="Assets\Scripts\src\Wave.cs" />
      <None Include="Assets\Res\Levels\test1.xml" />
      <None Include="Assets\Res\Levels\level1.xml" />

@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     private int createWaveCount = 0;
     private Level currentLevel;
     private Wave currentWave;
+
     void Start()
     {
 
@@ -66,6 +67,7 @@ public class EnemyController : MonoBehaviour
         if (createWaveCount == currentLevel.GetWaveCount()){
             isRunning = false;
             //Debug.Log("敌人增加结束了");
+            //告诉游戏控制器
         }else{
             currentWave = currentLevel.GetWave(createWaveCount);
             createEnemyCount = currentWave.enemyCount;
