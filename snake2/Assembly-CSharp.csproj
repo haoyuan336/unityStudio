@@ -47,9 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\FoodMaker.cs" />
-     <Compile Include="Assets\Scripts\MainUIController.cs" />
      <Compile Include="Assets\Scripts\SnakeHead.cs" />
-     <Compile Include="Assets\Scripts\StartUIController.cs" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Users/workspace/unityStudio/snake2/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>

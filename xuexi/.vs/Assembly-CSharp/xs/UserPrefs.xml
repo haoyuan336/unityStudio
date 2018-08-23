@@ -1,0 +1,21 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/src/Level.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Global.cs" Line="9" Column="4" />
+      <File FileName="Assets/Scripts/src/Consts.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/src/Enemy.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/src/GameController.cs" Line="54" Column="27" />
+      <File FileName="Assets/Scripts/src/EnemyController.cs" Line="26" Column="45" />
+      <File FileName="Assets/Scripts/src/Tool.cs" Line="77" Column="51" />
+      <File FileName="Assets/Scripts/src/Level.cs" Line="21" Column="1" />
+      <File FileName="Assets/Res/Levels/level1.xml" Line="15" Column="20" />
+      <File FileName="Assets/Scripts/src/Wave.cs" Line="20" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
