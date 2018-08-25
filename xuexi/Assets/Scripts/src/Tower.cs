@@ -10,7 +10,13 @@ public class Tower : MonoBehaviour {
     private List<GameObject> enemyList;
     public float attackDistance;
     private GameObject attackTarget;
-	void Start () {
+    private Vector3 targetVector;
+    private Vector3 currentVector;
+    private void Awake()
+    {
+        currentVector = new Vector3(0, transform.position.y, 0);
+    }
+    void Start () {
 
         //Debug.DrawLine(Vector3.zero, Vector3.up * 100,Color.red);
         Debug.DrawLine(Vector3.zero, new Vector3(0, 100, 0), Color.red);
@@ -38,18 +44,14 @@ public class Tower : MonoBehaviour {
             }
         }
         if (attackTarget != null){
-            //如果被攻击的对象不是null 那么开始攻击
-            Vector2 v1 = new Vector2(transform.position.x, transform.position.z) - Vector2.up;
-            Vector2 v2 = new Vector2(attackTarget.transform.position.x, attackTarget.transform.position.z) - Vector2.up;
-            //float angle = Quaternion.Angle(new Quaternion(v1), v2);
-            //float angle = Mathf.Atan((v2.y - v1.y) / (v2.x - v1.x));
-            //Debug.Log("angle = " + angle);
-            //float sign = Mathf.Sign(v2.y - v1.y);
-            //Debug.Log("sign =  " + sign);
-            //angle *= sign;
-            //angle += Mathf.PI * 0.01f;
-            //transform.rotation = Quaternion.Euler(new Vector3(0,angle,0));
-            //transform.rotation = 
+            targetVector = new Vector3(attackTarget.transform.position.x, transform.position.y, attackTarget.transform.position.z);
+            currentVector = Vector3.MoveTowards(currentVector, targetVector, Vector3.Distance(currentVector, targetVector) * 0.2f);
+            transform.LookAt(currentVector);
+            float dis = Vector3.Distance(transform.position, attackTarget.transform.position);
+
+            if (dis > attackDistance){
+                attackTarget = null;
+            }
         }
         
 	}
