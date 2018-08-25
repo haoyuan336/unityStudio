@@ -4,12 +4,9 @@
         <text>有种你别走!</text>
         <wave id="0">
             <type>0</type>
-            <count>10</count>
+            <count>1</count>
         </wave>
-         <wave id="1">
-            <type>1</type>
-            <count>20</count>
-        </wave>
+         
     </level>
     <level id="1" name="level">
         <text>不走就不!</text>

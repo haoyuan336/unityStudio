@@ -15,26 +15,28 @@ public class UIController : MonoBehaviour {
 	void Update () {
 		
 	}
-    void ShowBuildTowerUI(Vector3 pos){
-        if (currentMenu != null && pos.Equals(currentMenu.transform.position)){
+    void ShowBuildTowerUI(Transform tra){
+        Vector3 pos = tra.position;
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(pos);
+        if (currentMenu != null && screenPos.Equals(currentMenu.transform.position)){
             Debug.Log("相同位置的创建");
         }else if (currentMenu != null){
             Destroy(currentMenu);
-            CreareBuildTower(pos);
+            CreareBuildTower(screenPos, tra);
         }
         else
         {
-            CreareBuildTower(pos);
+            CreareBuildTower(screenPos, tra);
         }
 
 
     }
-    private void CreareBuildTower(Vector3 pos){
+    private void CreareBuildTower(Vector3 pos, Transform tra){
         Debug.Log("Show Build Tower UI width pos = " + pos);
         currentMenu = Instantiate(this.buildTowerUIPrefab);
         currentMenu.transform.position = pos;
         currentMenu.transform.parent = canvas.transform;
-        currentMenu.transform.GetComponent<BuildTowerUI>().setController(transform);
+        currentMenu.transform.GetComponent<BuildTowerUI>().setControllerAndTowerBase(transform, tra);
     }
     public void buttonClick(string type ){
         Debug.Log("uicontroller button click");

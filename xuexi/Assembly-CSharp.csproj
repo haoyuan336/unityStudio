@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\src\Enemy.cs" />
      <Compile Include="Assets\Scripts\src\Level.cs" />
      <Compile Include="Assets\Scripts\src\Tool.cs" />
+     <Compile Include="Assets\Scripts\src\Tower.cs" />
      <Compile Include="Assets\Scripts\src\TowerBase.cs" />
      <Compile Include="Assets\Scripts\src\UI\BuildTowerUI.cs" />
      <Compile Include="Assets\Scripts\src\Wave.cs" />

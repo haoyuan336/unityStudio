@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     private int createWaveCount = 0;
     private Level currentLevel;
     private Wave currentWave;
-
+    public List<GameObject> enemyList;
     void Start()
     {
 
@@ -61,9 +61,12 @@ public class EnemyController : MonoBehaviour
         if (createEnemyCount > 0)
         {
             GameObject obj = Instantiate(enemyPrefabs[type]);
-            obj.transform.parent = transform.parent;
+            obj.transform.parent = transform;
             obj.transform.GetComponent<Enemy>().initPosNode(posNodes);
+            obj.transform.GetComponent<Enemy>().setController(this);
+
             createEnemyCount--;
+            enemyList.Add(obj);
         }
     }
     private void CreateAnWave(){
@@ -76,5 +79,10 @@ public class EnemyController : MonoBehaviour
             createEnemyCount = currentWave.enemyCount;
             createWaveCount++;
         }
+    }
+    public void removeOneEnemy(GameObject obj){
+        Destroy(obj);
+        enemyList.Remove(obj);
+        Debug.Log("enemy List length =  " + enemyList.Count);
     }
 }

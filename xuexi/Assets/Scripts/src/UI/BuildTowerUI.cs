@@ -6,6 +6,7 @@ public class BuildTowerUI : MonoBehaviour {
 
     // Use this for initialization
     private Transform controller;
+    private Transform towerBase;
 	void Start () {
 		
 	}
@@ -16,10 +17,14 @@ public class BuildTowerUI : MonoBehaviour {
 	}
     public void buttonClick(int  towerId){
         Debug.Log("Button Click id  = " + towerId);
-        controller.SendMessage("BuildOneTower" , towerId);
+        object[] message = new object[2];
+        message[0] = towerId;
+        message[1] = towerBase;
+        controller.SendMessage("BuildOneTower" , message);
         Destroy(gameObject);
     }
-    public void setController(Transform ctl){
+    public void setControllerAndTowerBase(Transform ctl, Transform tra){
         controller = ctl;
+        towerBase = tra;
     }
 }

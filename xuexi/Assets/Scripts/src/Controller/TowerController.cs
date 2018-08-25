@@ -15,7 +15,7 @@ public class TowerController : MonoBehaviour {
         //targetMask = LayerMask.GetMask("target");
         for (var i = 0; i < towerBasePosNodes.transform.childCount; i ++){
             var obj = Instantiate(towerBasePrefab);
-            //obj.transform.parent = transform.parent;
+            obj.transform.parent = transform;
             obj.transform.position = towerBasePosNodes.transform.GetChild(i).transform.position;
             towerBaseList.Add(obj);
             obj.GetComponent<TowerBase>().setController(transform);
@@ -41,9 +41,16 @@ public class TowerController : MonoBehaviour {
             }
         }
     }
-    public void BuildOneTower(int id, Vector3 pos){
-        Debug.Log("Build one Tower = " + id);
-        GameObject obj = Instantiate(this.towerPrefabs[id]);
-        obj.transform.position = pos;
+    public void BuildOneTower(object[] obj){
+        int towerType = (int)obj[0];
+        Transform towerBase = (Transform)obj[1];
+        GameObject tower = Instantiate(this.towerPrefabs[towerType]);
+        tower.transform.parent = transform;
+        tower.transform.position =   towerBase.position + Vector3.up * 0.5f;
+        tower.transform.GetComponent<Tower>().setController(transform);
+
+        //Debug.Log("Build one Tower = " + id);
+        //GameObject obj = Instantiate(this.towerPrefabs[id]);
+        //obj.transform.position = pos;
     }
 }

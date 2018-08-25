@@ -16,6 +16,9 @@ public class TowerBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
     }
     public void ClickBase()
     {
@@ -25,7 +28,9 @@ public class TowerBase : MonoBehaviour
     {
         Debug.Log("Click Down Base ");
         //点下了tower 之后 ，给控制器发送一条消息。可以绘制一个UI了
-        controller.SendMessage("ShowBuildTowerUI", Camera.main.WorldToScreenPoint(transform.position));
+        controller.SendMessage("ShowBuildTowerUI", transform);
+        //controller.SendMessage("ShowBuildTowerUI", Camera.main.WorldToScreenPoint(transform.position));
+
 
     }
     public void OnUpBase()

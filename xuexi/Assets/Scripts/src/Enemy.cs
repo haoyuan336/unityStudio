@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     private Vector3 nextPos;
     private EnemyState enemyState = EnemyState.Invalide;
     public float speed = 0.1f;
-
+    private EnemyController enemyController;
     // Use this for initialization
     private void Awake()
     {
@@ -87,12 +87,15 @@ public class Enemy : MonoBehaviour
                 case EnemyState.Dead:
                     break;
                 case EnemyState.End:
-                    Destroy(gameObject);                    
+                    enemyController.removeOneEnemy(gameObject);
                     break;
                 default:
                     break;
             }
         }
         enemyState = state;
+    }
+    public void setController(EnemyController ctl){
+        enemyController = ctl;
     }
 }
