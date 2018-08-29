@@ -62,21 +62,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Global.cs" />
-    <Compile Include="Assets\Scripts\src\Bullet.cs" />
+    <Compile Include="Assets\Scripts\src\ChooseLevel\ChooseLevelController.cs" />
     <Compile Include="Assets\Scripts\src\Consts.cs" />
-    <Compile Include="Assets\Scripts\src\Controller\EnemyController.cs" />
-    <Compile Include="Assets\Scripts\src\Controller\GameController.cs" />
-    <Compile Include="Assets\Scripts\src\Controller\LevelController.cs" />
-    <Compile Include="Assets\Scripts\src\Controller\TowerController.cs" />
-    <Compile Include="Assets\Scripts\src\Controller\UIController.cs" />
-    <Compile Include="Assets\Scripts\src\Enemy.cs" />
-    <Compile Include="Assets\Scripts\src\Level.cs" />
-    <Compile Include="Assets\Scripts\src\Tool.cs" />
-    <Compile Include="Assets\Scripts\src\Tower.cs" />
-    <Compile Include="Assets\Scripts\src\TowerBase.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Bullet.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Controller\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Controller\GameController.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Controller\LevelController.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Controller\TowerController.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Controller\UIController.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Enemy.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Level.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Tool.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Tower.cs" />
+    <Compile Include="Assets\Scripts\src\Game\TowerBase.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Wave.cs" />
     <Compile Include="Assets\Scripts\src\UI\BuildTowerUI.cs" />
     <Compile Include="Assets\Scripts\src\UI\ProgressBar.cs" />
-    <Compile Include="Assets\Scripts\src\Wave.cs" />
     <None Include="Assets\Res\Levels\test1.xml" />
     <None Include="Assets\Res\Levels\level1.xml" />
     <Reference Include="UnityEditor.StandardEvents">
