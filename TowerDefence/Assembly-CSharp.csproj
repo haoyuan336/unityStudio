@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Global.cs" />
     <Compile Include="Assets\Scripts\src\ChooseLevel\ChooseLevelController.cs" />
+    <Compile Include="Assets\Scripts\src\ChooseLevel\LevelButton.cs" />
     <Compile Include="Assets\Scripts\src\Consts.cs" />
     <Compile Include="Assets\Scripts\src\Game\Bullet.cs" />
     <Compile Include="Assets\Scripts\src\Game\Controller\EnemyController.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\Scripts\src\Game\Controller\UIController.cs" />
     <Compile Include="Assets\Scripts\src\Game\Enemy.cs" />
     <Compile Include="Assets\Scripts\src\Game\Level.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Maps.cs" />
     <Compile Include="Assets\Scripts\src\Game\Tool.cs" />
     <Compile Include="Assets\Scripts\src\Game\Tower.cs" />
     <Compile Include="Assets\Scripts\src\Game\TowerBase.cs" />

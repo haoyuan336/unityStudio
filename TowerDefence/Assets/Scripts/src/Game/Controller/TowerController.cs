@@ -11,14 +11,16 @@ public class TowerController : MonoBehaviour {
     private GameObject rayHitObj;
     int targetMask;
     private List<GameObject> towerBaseList = new List<GameObject>();
+    private Transform controller;
     void Start () {
         //targetMask = LayerMask.GetMask("target");
+        //towerBasePosNodes = transform.GetComponent<GameController>().map.transform.GetComponent<Maps>().GetTowerBaseNodes();
         for (var i = 0; i < towerBasePosNodes.transform.childCount; i ++){
             var obj = Instantiate(towerBasePrefab);
             obj.transform.parent = transform;
             obj.transform.position = towerBasePosNodes.transform.GetChild(i).transform.position;
             towerBaseList.Add(obj);
-            obj.GetComponent<TowerBase>().setController(transform);
+            obj.GetComponent<TowerBase>().setControllerAndGameController(transform, controller);
         }
 	}
 	
@@ -40,6 +42,7 @@ public class TowerController : MonoBehaviour {
                 }
             }
         }
+
     }
     public void BuildOneTower(object[] obj){
         int towerType = (int)obj[0];
@@ -52,5 +55,8 @@ public class TowerController : MonoBehaviour {
         //Debug.Log("Build one Tower = " + id);
         //GameObject obj = Instantiate(this.towerPrefabs[id]);
         //obj.transform.position = pos;
+    }
+    public void SetController(Transform obj){
+        controller = obj;
     }
 }

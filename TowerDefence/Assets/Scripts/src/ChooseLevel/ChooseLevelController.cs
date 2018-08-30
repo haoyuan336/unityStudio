@@ -10,16 +10,26 @@ public class ChooseLevelController : MonoBehaviour
     public GameObject earthObject;
     private bool isTouching = false;
     private Vector3 targetRotation;
-    private Vector3 currentRotation = Vector3.zero;
     public GameObject levelButtonPrefab;
+    public GameObject canvas;
+    private List<GameObject> levelButtonList = new List<GameObject>();
     void Start()
     {
+        Global.GetInstance();
         targetRotation = new Vector3(0, 0, 10);
-        for (int i = 0; i < 10; i ++){
+        for (int i = 0; i < 10; i++)
+        {
             GameObject obj = Instantiate(levelButtonPrefab);
             obj.transform.parent = earthObject.transform;
-            Vector3 targetV = new Vector3(Random.Range(0, 100.0f), Random.Range(0, 100.0f), Random.Range(0, 100.0f));
-            //obj.transform.position = Vector3.Angle(Vector3.zero,);
+            float th = Random.Range(0, Mathf.PI);
+            float fh = Random.Range(0, Mathf.PI * 2);
+            float x = 5.0f * Mathf.Sin(th) * Mathf.Cos(fh);
+            float y = 5.0f * Mathf.Sin(th) * Mathf.Sin(fh);
+            float z = 5.0f * Mathf.Cos(th);
+            obj.transform.position = new Vector3(x, y, z);
+            //obj
+            obj.transform.GetComponent<LevelButton>().Init(canvas,i);
+            levelButtonList.Add(obj);
         }
     }
 
@@ -27,18 +37,28 @@ public class ChooseLevelController : MonoBehaviour
     void Update()
     {
 
-        Vector2 mousePos = Input.mousePosition;
-        Ray ray = Camera.main.ScreenPointToRay(mousePos);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100f,1)){
-            if (hit.transform.tag == ""){
 
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        for (int i = 0; i < levelButtonList.Count; i ++){
+            levelButtonList[i].transform.GetComponent<LevelButton>().OutMouse();
+        }
+        if (Physics.Raycast(ray, out hit, 1000f, 1))
+        {
+            //Debug.Log("hit tag = " + hit.transform.tag);
+            if (hit.transform.tag == "LevelButton")
+            {
+
+                hit.transform.GetComponent<LevelButton>().OnMouse();
+
+                if (isTouching){
+                    hit.transform.GetComponent<LevelButton>().buttonDown();
+
+                }
             }
         }
 
-
-
-
+        Vector2 mousePos = Input.mousePosition;
         if (Input.GetMouseButtonDown(0))
         {
             mousePosition = mousePos;
@@ -54,17 +74,7 @@ public class ChooseLevelController : MonoBehaviour
         }
         if (isTouching == true)
         {
-            //Vector2 mousePos = Input.mousePosition;
-            ////Debug.Log("moyse pos = " + mousePos);
-            //Vector2 director = mousePos - mousePosition;
-            //director = director.normalized * 2;
-            //mousePosition = mousePos;
 
-            //targetRotation += Vector3.down * director.x;
-            //targetRotation += Vector3.right * director.y;
-            //currentRotation = Vector3.MoveTowards(currentRotation, targetRotation.normalized, 0.1f);
-
-            //earthObject.transform.LookAt(currentRotation);
             Vector2 director = mousePos - mousePosition;
             mousePosition = mousePos;
             earthObject.transform.Rotate(Vector3.down * director.x * Time.deltaTime * 10);
