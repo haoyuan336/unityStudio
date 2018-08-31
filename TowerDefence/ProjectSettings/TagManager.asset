@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TowerBase
   - LevelButton
+  - Tower
   layers:
   - Default
   - TransparentFX

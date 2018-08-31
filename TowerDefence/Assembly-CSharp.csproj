@@ -66,11 +66,11 @@
     <Compile Include="Assets\Scripts\src\ChooseLevel\LevelButton.cs" />
     <Compile Include="Assets\Scripts\src\Consts.cs" />
     <Compile Include="Assets\Scripts\src\Game\Bullet.cs" />
-    <Compile Include="Assets\Scripts\src\Game\Controller\EnemyController.cs" />
     <Compile Include="Assets\Scripts\src\Game\Controller\GameController.cs" />
-    <Compile Include="Assets\Scripts\src\Game\Controller\LevelController.cs" />
-    <Compile Include="Assets\Scripts\src\Game\Controller\TowerController.cs" />
-    <Compile Include="Assets\Scripts\src\Game\Controller\UIController.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Controller\Map\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Controller\Map\LevelController.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Controller\Map\TowerController.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Controller\Map\UIController.cs" />
     <Compile Include="Assets\Scripts\src\Game\Enemy.cs" />
     <Compile Include="Assets\Scripts\src\Game\Level.cs" />
     <Compile Include="Assets\Scripts\src\Game\Maps.cs" />
@@ -80,8 +80,10 @@
     <Compile Include="Assets\Scripts\src\Game\Wave.cs" />
     <Compile Include="Assets\Scripts\src\UI\BuildTowerUI.cs" />
     <Compile Include="Assets\Scripts\src\UI\ProgressBar.cs" />
+    <Compile Include="Assets\Scripts\src\UI\TopBar.cs" />
+    <Compile Include="Assets\Scripts\src\UI\UpdateTowerUI.cs" />
     <None Include="Assets\Res\Levels\test1.xml" />
-    <None Include="Assets\Res\Levels\level1.xml" />
+    <None Include="Assets\Res\Levels\Earth0.xml" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/workspace/unityStudio/TowerDefence/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

@@ -8,7 +8,7 @@ public class TowerBase : MonoBehaviour
     // Use this for initialization
     private Color color;
     private Transform controller;
-    private Transform gameController;
+    //private Transform gameController;
     void Start()
     {
         color = transform.GetComponent<Renderer>().material.color;
@@ -29,9 +29,10 @@ public class TowerBase : MonoBehaviour
     {
         Debug.Log("Click Down Base ");
         //点下了tower 之后 ，给控制器发送一条消息。可以绘制一个UI了
-        gameController.SendMessage("ShowBuildTowerUI", transform);
+        //gameController.SendMessage("ShowBuildTowerUI", transform);
         //controller.SendMessage("ShowBuildTowerUI", Camera.main.WorldToScreenPoint(transform.position));
-
+        //transform.parent.SendMessage("ShowBuildTowerUI", transform);
+        Global.GetInstance().GetUIController().ShowBuildTowerUI(transform);
 
     }
     public void OnUpBase()
@@ -45,8 +46,8 @@ public class TowerBase : MonoBehaviour
     public void ClickEndBase()
     {
     }
-    public void setControllerAndGameController(Transform ctl, Transform ctl2){
-        controller = ctl;
-        gameController = ctl2;
-    }
+    //public void setControllerAndGameController(Transform ctl, Transform ctl2){
+    //    //controller = ctl;
+    //    //gameController = ctl2;
+    //}
 }

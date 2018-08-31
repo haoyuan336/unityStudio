@@ -17,10 +17,14 @@ public class Tower : MonoBehaviour
     private float shootNotTime = 0.0f;
     public GameObject shootPoint;
     public GameObject gun;
+    private bool isMouseOver = false;
+    private Color currentColor;
+    public GameObject towerRange;
     private void Awake()
     {
         currentVector = new Vector3(10, transform.position.y, 100);
         //bulletPool = new ObjectPool(bulletPrefab, 3);
+        currentColor = transform.GetComponent<Renderer>().material.color;
     }
     void Start()
     {
@@ -41,7 +45,7 @@ public class Tower : MonoBehaviour
         //遍历敌人节点 ，根据攻击距离寻找需要攻击的敌人 敌人列表不是空的，并且被攻击的对象 是null的 ，这时候寻找敌人
         if (enemyList != null && attackTarget == null)
         {
-            for (int i = 0; i < enemyList.Count; i++)
+            for (int i = (enemyList.Count - 1); i >= 0; i--)
             {
                 GameObject obj = enemyList[i];
                 if (!obj.transform.GetComponent<Enemy>().isDead())
@@ -80,10 +84,23 @@ public class Tower : MonoBehaviour
                 //攻击间隔
             }
 
-        }else{
+        }
+        else
+        {
             attackTarget = null;
         }
 
+
+        if (isMouseOver && Input.GetMouseButtonDown(0)){
+            //鼠标点击事件
+            Global.GetInstance().GetUIController().ShowTowerUpdateUI(transform);
+            ShowAttackRange();
+        }
+
+    }
+    void ShowAttackRange(){
+        towerRange.SetActive(true);
+        towerRange.transform.localScale = new Vector3(attackDistance * 2, transform.localScale.y, attackDistance * 2);
     }
     void ShootBullet()
     {
@@ -104,5 +121,19 @@ public class Tower : MonoBehaviour
     public void BullletEnd(GameObject obj)
     {
         //bulletPool.ReccleObj(obj);
+    }
+    public void OnUpTower(){
+        transform.GetComponent<Renderer>().material.color = Color.red;
+        isMouseOver = true;
+    }
+    public void OutUpTower(){
+        transform.GetComponent<Renderer>().material.color = currentColor;
+        isMouseOver = false;
+    }
+    public void UpdateTower(){
+        HideTowerRange();
+    }
+    public void HideTowerRange(){
+        towerRange.SetActive(false);
     }
 }

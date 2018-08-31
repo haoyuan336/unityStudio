@@ -10,6 +10,7 @@ public class Tool
 
     private static List<Level> levelList = new List<Level>();
     public static Level currentLevel;
+    public static string earthName;
     public static void ReadXml(string path)
     {
         Debug.Log("Read xml path = " + path);
@@ -17,8 +18,10 @@ public class Tool
         {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(path);
-            XmlNodeList nodes = xmlDoc.SelectSingleNode("content").ChildNodes;
-            foreach (XmlElement xm in nodes)
+            XmlNode content = xmlDoc.SelectSingleNode("content");
+            XmlNodeList levels = content.SelectNodes("level");
+            earthName = content.SelectSingleNode("EarthName").InnerText;
+            foreach (XmlElement xm in levels)
             {
                 Debug.Log("level id = " + xm.GetAttribute("id"));
                 XmlNode textNode = xm.SelectSingleNode("text");
@@ -39,6 +42,7 @@ public class Tool
             }
         }
     }
+
 
 
     public static void CreateXml(string filePath)
@@ -82,5 +86,7 @@ public class Tool
     //    PlayerPrefs.SetInt
     //}
 
-
+    public static List<Level> GetLevelList(){
+        return levelList;
+    }
 }

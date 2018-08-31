@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     {
         //先取到
         healthBar = Instantiate(healthBarPrefab);
-        healthBar.transform.parent = uIController.canvas.transform;
+        healthBar.transform.parent = Global.GetInstance().GetCanvas().transform;
         healthBar.transform.position = Camera.main.WorldToScreenPoint(healthBarPos.transform.position);
         healthCount = healthTotalCount;
     }
@@ -121,7 +121,6 @@ public class Enemy : MonoBehaviour
     }
     public void setController(Transform ctl){
         enemyController = ctl.GetComponent<EnemyController>();
-        uIController = ctl.GetComponent<UIController>();
     }
     /// <param name="obj">被攻击的对象</param>
     public void beAttach(int damage){

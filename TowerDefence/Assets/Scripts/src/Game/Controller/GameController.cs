@@ -16,15 +16,24 @@ public class GameController : MonoBehaviour
     public GameObject levelLabel;
     public List<GameObject> mapPrefabs;
     private GameObject map;
+    public Canvas canvas;
+
+
     private void Awake()
     {
 
+
+
         //进入游戏的时候 先读取xml数据 取出关卡数据
-        Tool.ReadXml(Consts.LevelDir + "level1.xml");
         //根据当前的关卡数，初始化场景
         int level = Global.GetInstance().GetLevel();
+        Tool.ReadXml(Consts.LevelDir + "Earth" + level + ".xml");
+
+        Global.GetInstance().SetCanvas(canvas);
+
         map = Instantiate(mapPrefabs[level]);
-        map.transform.GetComponent<TowerController>().SetController(transform);
+        //Global.
+      
     }
     void Start()
     {
@@ -51,6 +60,7 @@ public class GameController : MonoBehaviour
         {
 
         }
+
     }
     void SetState(GameState state)
     {
