@@ -9,11 +9,13 @@ public class TopBar : MonoBehaviour {
     public GameObject levelNumLabel;
     public GameObject waveNumLabel;
     public GameObject levelTextLabel;
-    public GameObject currentGoldLabel;
+    public GameObject currentGoldLabel; 
 	void Start () {
-        earthNameLabel.GetComponent<Text>().text = Tool.earthName;
-        levelNumLabel.GetComponent<Text>().text = "Level:" + (Global.GetInstance().GetLevel() + 1).ToString();
-        levelTextLabel.GetComponent<Text>().text = Tool.GetLevelList()[Global.GetInstance().GetLevel()].levelText;
+        earthNameLabel.GetComponent<Text>().text = Global.GetInstance().GetEarthName();
+        levelNumLabel.GetComponent<Text>().text = "Level:" + (Global.GetInstance().GetLevelNum() + 1).ToString();
+        levelTextLabel.GetComponent<Text>().text = Global.GetInstance().GetCurrentLevel().levelText;
+        Global.GetInstance().SetTopBar(this);
+        SetGoldNumText(Global.GetInstance().GetCurrentLevel().currentGold);
     }
 	
 	// Update is called once per frame
@@ -23,4 +25,10 @@ public class TopBar : MonoBehaviour {
     public void SetWaveText(string str){
         waveNumLabel.GetComponent<Text>().text = str;
     }
+    public void SetGoldNumText(int num){
+        currentGoldLabel.GetComponent<Text>().text = num.ToString();
+
+    }
 }
+      
+

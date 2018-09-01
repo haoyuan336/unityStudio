@@ -1,29 +1,6 @@
 ﻿<Properties StartupConfiguration="{28866EB0-7993-C171-348D-8535A8E3480D}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/src/Game/Controller/Map/EnemyController.cs">
-    <Files>
-      <File FileName="Assets/Scripts/src/ChooseLevel/ChooseLevelController.cs" Line="18" Column="30" />
-      <File FileName="Assets/Scripts/src/Game/Tower.cs" Line="133" Column="31" />
-      <File FileName="Assets/Scripts/src/Game/Bullet.cs" Line="23" Column="46" />
-      <File FileName="Assets/Scripts/src/Game/Enemy.cs" Line="34" Column="35" />
-      <File FileName="Assets/Scripts/src/Game/Controller/GameController.cs" Line="36" Column="7" />
-      <File FileName="Assets/Scripts/src/Game/Controller/Map/UIController.cs" Line="96" Column="9" />
-      <File FileName="Assets/Scripts/src/Game/Controller/Map/TowerController.cs" Line="76" Column="39" />
-      <File FileName="Assets/Scripts/src/ChooseLevel/LevelButton.cs" Line="47" Column="56" />
-      <File FileName="Assets/Scripts/src/Consts.cs" Line="11" Column="1" />
-      <File FileName="Assets/Scripts/Global.cs" Line="12" Column="39" />
-      <File FileName="Assets/Scripts/src/Game/Level.cs" Line="9" Column="27" />
-      <File FileName="Assets/Scripts/src/Game/Maps.cs" Line="17" Column="29" />
-      <File FileName="Assets/Scripts/src/Game/Tool.cs" Line="90" Column="26" />
-      <File FileName="Assets/Scripts/src/Game/TowerBase.cs" Line="46" Column="31" />
-      <File FileName="Assets/Scripts/src/UI/BuildTowerUI.cs" Line="36" Column="44" />
-      <File FileName="Assets/Scripts/src/UI/ProgressBar.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/src/UI/UpdateTowerUI.cs" Line="32" Column="66" />
-      <File FileName="Assets/Res/Levels/Earth0.xml" Line="3" Column="15" />
-      <File FileName="Assets/Scripts/src/UI/TopBar.cs" Line="22" Column="28" />
-      <File FileName="Assets/Scripts/src/Game/Controller/Map/EnemyController.cs" Line="18" Column="30" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

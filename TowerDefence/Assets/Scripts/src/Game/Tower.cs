@@ -1,25 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Tower : MonoBehaviour
 {
     //建造好之后 就可以追踪敌人了
     // Use this for initialization
+    public int towerType;
+    public GameObject bulletPrefab;
+    public GameObject shootPoint;
+    public GameObject towerRange;
+    public GameObject levelLabelPos;
+    public GameObject levelLabelPrefab;
+
+
     private EnemyController enemyController;
     private List<GameObject> enemyList;
-    public float attackDistance;
+    //private List<float> attackDistance;
     private GameObject attackTarget;
     private Vector3 targetVector;
     private Vector3 currentVector;
-    public GameObject bulletPrefab;
-    public float shootDuraction;
+    //public float shootDuraction;
     private float shootNotTime = 0.0f;
-    public GameObject shootPoint;
-    public GameObject gun;
     private bool isMouseOver = false;
     private Color currentColor;
-    public GameObject towerRange;
+
+    private GameObject levelLabel;
+    private int currentLevel;
+    private TowerData towerData;
+    //public float  
     private void Awake()
     {
         currentVector = new Vector3(10, transform.position.y, 100);
@@ -28,9 +37,17 @@ public class Tower : MonoBehaviour
     }
     void Start()
     {
+        levelLabel = Instantiate(levelLabelPrefab);
+        levelLabel.transform.parent = Global.GetInstance().GetCanvas().transform;
+        levelLabel.transform.position = Camera.main.WorldToScreenPoint(levelLabelPos.transform.position);
+        //当前的等级是0 级
 
         //Debug.DrawLine(Vector3.zero, Vector3.up * 100,Color.red);
         //Debug.DrawLine(Vector3.zero, new Vector3(100, 100, 100), Color.red);
+        currentLevel = 0;
+        towerData = Global.GetInstance().GetTowerData(towerType);
+        levelLabel.transform.GetComponent<Text>().text = towerData.towerName[currentLevel] + ":" + (currentLevel + 1).ToString();
+
     }
     public void SetController(Transform ctl)
     {
@@ -51,7 +68,7 @@ public class Tower : MonoBehaviour
                 if (!obj.transform.GetComponent<Enemy>().isDead())
                 {
                     float dis = Vector3.Distance(transform.position, obj.transform.position);
-                    if (dis <= attackDistance)
+                    if (dis <= towerData.attackRangeList[currentLevel])
                     {
                         attackTarget = obj;
                     }
@@ -66,14 +83,14 @@ public class Tower : MonoBehaviour
             transform.LookAt(currentVector);
             float dis = Vector3.Distance(transform.position, attackTarget.transform.position);
 
-            if (dis > attackDistance)
+            if (dis > towerData.attackRangeList[currentLevel])
             {
                 attackTarget = null;
             }
         }
         if (attackTarget != null && !attackTarget.transform.GetComponent<Enemy>().isDead())
         {
-            if (shootNotTime > shootDuraction)
+            if (shootNotTime > towerData.attackDuractionList[currentLevel])
             {
                 shootNotTime = 0;
                 ShootBullet();
@@ -91,16 +108,19 @@ public class Tower : MonoBehaviour
         }
 
 
-        if (isMouseOver && Input.GetMouseButtonDown(0)){
+        if (isMouseOver && Input.GetMouseButtonDown(0))
+        {
             //鼠标点击事件
             Global.GetInstance().GetUIController().ShowTowerUpdateUI(transform);
             ShowAttackRange();
         }
 
     }
-    void ShowAttackRange(){
+    void ShowAttackRange()
+    {
         towerRange.SetActive(true);
-        towerRange.transform.localScale = new Vector3(attackDistance * 2, transform.localScale.y, attackDistance * 2);
+        float distance = towerData.attackRangeList[currentLevel];
+        towerRange.transform.localScale = new Vector3(distance * 2, transform.localScale.y, distance * 2);
     }
     void ShootBullet()
     {
@@ -122,18 +142,36 @@ public class Tower : MonoBehaviour
     {
         //bulletPool.ReccleObj(obj);
     }
-    public void OnUpTower(){
+    public void OnUpTower()
+    {
         transform.GetComponent<Renderer>().material.color = Color.red;
         isMouseOver = true;
     }
-    public void OutUpTower(){
+    public void OutUpTower()
+    {
         transform.GetComponent<Renderer>().material.color = currentColor;
         isMouseOver = false;
     }
-    public void UpdateTower(){
+    public void UpdateTower()
+    {
+        currentLevel += 1;
+        levelLabel.transform.GetComponent<Text>().text = towerData.towerName[currentLevel] + ':' + (currentLevel + 1).ToString();
         HideTowerRange();
     }
-    public void HideTowerRange(){
+    public void HideTowerRange()
+    {
         towerRange.SetActive(false);
+    }
+    public TowerData GetTowerData()
+    {
+        return towerData;
+
+    }
+    public int GetCurrentTowerLevel(){
+        return currentLevel;
+    }
+    public void OnDestroy()
+    {
+        Destroy(levelLabel);
     }
 }

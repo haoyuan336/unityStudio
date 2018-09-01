@@ -54,7 +54,7 @@ public class EnemyController : MonoBehaviour
     }
     public void GameStart()
     {
-        currentLevel = Tool.GetCurrentLevel();
+        currentLevel = Global.GetInstance().GetCurrentLevel();
         isRunning = true;
         CreateAnWave();
     }
@@ -82,7 +82,8 @@ public class EnemyController : MonoBehaviour
             createEnemyCount = currentWave.enemyCount;
             createWaveCount++;
         }
-        Global.GetInstance().GetUIController().SetWaveNum(currentLevel.GetWaveCount(), createWaveCount);
+        //Global.GetInstance().GetUIController().SetWaveNum(currentLevel.GetWaveCount(), createWaveCount);
+        Global.GetInstance().GetTopBar().SetWaveText(currentLevel.GetWaveCount().ToString() + "/" + createWaveCount.ToString());
     }
     public void removeOneEnemy(GameObject obj){
         Destroy(obj);

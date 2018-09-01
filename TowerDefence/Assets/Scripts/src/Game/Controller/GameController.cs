@@ -26,13 +26,13 @@ public class GameController : MonoBehaviour
 
         //进入游戏的时候 先读取xml数据 取出关卡数据
         //根据当前的关卡数，初始化场景
-        int level = Global.GetInstance().GetLevel();
-        Tool.ReadXml(Consts.LevelDir + "Earth" + level + ".xml");
+        int level = Global.GetInstance().GetLevelNum();
 
         Global.GetInstance().SetCanvas(canvas);
 
         map = Instantiate(mapPrefabs[level]);
         //Global.
+
       
     }
     void Start()
@@ -76,8 +76,8 @@ public class GameController : MonoBehaviour
                 case GameState.Run:
                     Debug.Log("游戏开始运行了");
                     //actionEvent.Invoke();
-                    Debug.Log("Game Controller  = " + Tool.GetCurrentLevel().levelText);
-                    levelLabel.transform.GetComponent<Text>().text = Tool.GetCurrentLevel().levelText;
+                    //Debug.Log("Game Controller  = " + Tool.GetCurrentLevel().levelText);
+                    levelLabel.transform.GetComponent<Text>().text = Global.GetInstance().GetLevelNum().ToString();
                     break;
                 default:
                     break;

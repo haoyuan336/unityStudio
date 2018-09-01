@@ -8,10 +8,16 @@ using System.Xml;
 public class Tool
 {
 
-    private static List<Level> levelList = new List<Level>();
-    public static Level currentLevel;
-    public static string earthName;
-    public static void ReadXml(string path)
+    private List<Level> levelList;
+    public Level currentLevel;
+    public string earthName;
+    public List<TowerData> towerDataList;
+    public Tool()
+    {
+        levelList = new List<Level>();
+        towerDataList = new List<TowerData>();
+    }
+    public void ReadLevelXml(string path)
     {
         Debug.Log("Read xml path = " + path);
         if (File.Exists(path))
@@ -38,6 +44,7 @@ public class Tool
                     waveList.Add(wave);
                 }
                 Level level = new Level(waveList, textNode.InnerText);
+                level.currentGold = int.Parse(xm.SelectSingleNode("InitGold").InnerText);
                 levelList.Add(level);
             }
         }
@@ -45,7 +52,7 @@ public class Tool
 
 
 
-    public static void CreateXml(string filePath)
+    public void CreateXml(string filePath)
     {
         if (!File.Exists(filePath))
         {
@@ -75,7 +82,8 @@ public class Tool
 
         }
     }
-    public static Level GetCurrentLevel(){
+    public Level GetCurrentLevel()
+    {
         int currentLevelNum = Level.GetLevelNum();
         Debug.Log("current level num = " + currentLevelNum);
         currentLevel = levelList[currentLevelNum];
@@ -85,8 +93,57 @@ public class Tool
     //public static void setData(){
     //    PlayerPrefs.SetInt
     //}
+    public void ReadTowerInfo(string path)
+    {
+        string[] nameList = new string[6];
+        nameList[0] = "TowerName";
+        nameList[1] = "UpdateCast";
+        nameList[2] = "AttackRange";
+        nameList[3] = "AttackDamage";
+        nameList[4] = "AttackDuraction";
+        nameList[5] = "SellGold";
+        if (File.Exists(path))
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(path);
+            XmlNodeList towerXmlList = xmlDoc.SelectSingleNode("content").ChildNodes;
+            //XmlNodeList towerXmlList = content.SelectNodes("Tower");
+            Debug.Log("tower xml list = " + towerXmlList.Count);
+            foreach (XmlNode towerXml in towerXmlList)
+            {
+                XmlNode tyXml = towerXml.SelectSingleNode("Type");
+                TowerData td = new TowerData(int.Parse(tyXml.InnerText));
+                td.SetSpecialSkillName(towerXml.SelectSingleNode("SpecialSkillName").InnerText);
+                //XmlNodeList nodeList = towerXml.SelectNodes("TowerName");
+                //Debug.Log("Node List = " + nodeList.Count);
+                for (int i = 0; i < nameList.Length; i++)
+                {
+                    XmlNodeList nodeList = towerXml.SelectNodes(nameList[i]);
+                    List<string> valueFloat = new List<string>();
+                    foreach (XmlNode nodeXml in nodeList)
+                    {
+                        valueFloat.Add(nodeXml.InnerText);
+                    }
+                    td.SetTowerData(nameList[i], valueFloat);
+                }
+                towerDataList.Add(td);
+            }
 
-    public static List<Level> GetLevelList(){
+        }
+    }
+
+    public List<Level> GetLevelList()
+    {
         return levelList;
+    }
+    public Level GetLevel(int index)
+    {
+        return levelList[index];
+    }
+    public List<TowerData> GetTowerDatas(){
+        return towerDataList;
+    }
+    public TowerData GetTowerData(int type){
+        return towerDataList[type];
     }
 }

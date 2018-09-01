@@ -10,10 +10,10 @@ public class UIController : MonoBehaviour {
     private Transform currentTower;
     public GameObject topBarPrefab;
     public GameObject topBarPos;
-    private GameObject topBar;
+    //private GameObject topBar;
 	void Start () {
         Global.GetInstance().SetUIController(this);
-        topBar = Instantiate(topBarPrefab);
+        GameObject topBar = Instantiate(topBarPrefab);
         topBar.transform.parent = Global.GetInstance().GetCanvas().transform;
         //topBar.transform.position = Vector2.zero;
         Vector3 p = Camera.main.WorldToScreenPoint(topBarPos.transform.position);
@@ -38,8 +38,6 @@ public class UIController : MonoBehaviour {
         {
             CreareBuildTower(screenPos, tra);
         }
-
-
     }
     private void CreareBuildTower(Vector3 pos, Transform tra){
         Debug.Log("Show Build Tower UI width pos = " + pos);
@@ -91,8 +89,5 @@ public class UIController : MonoBehaviour {
         }else{
             CreateUpdateTowerUI(screenPos, tw);
         }
-    }
-    public void SetWaveNum(int totalNum, int currentNum){
-        topBar.GetComponent<TopBar>().SetWaveText(currentNum.ToString() + "/" + totalNum.ToString());
     }
 }

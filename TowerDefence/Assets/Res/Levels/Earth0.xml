@@ -3,6 +3,7 @@
     <EarthName>勇者星球</EarthName>
     <level id="0" name="level">
         <text>有种你别走!</text>
+        <InitGold>100</InitGold>
         <wave id="0">
             <type>0</type>
             <count>5</count>
@@ -13,6 +14,7 @@
         </wave>
     </level>
     <level id="1" name="level">
+        <InitGold>200</InitGold>
         <text>不走就不!</text>
         <wave id="0">
             <type>1</type>
