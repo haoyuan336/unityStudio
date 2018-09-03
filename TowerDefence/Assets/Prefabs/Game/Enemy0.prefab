@@ -129,3 +129,4 @@ MonoBehaviour:
   healthBarPrefab: {fileID: 1724886230335234, guid: 1592caef0bccb46d18eb213ddea891b6,
     type: 2}
   healthTotalCount: 2
+  gold: 5

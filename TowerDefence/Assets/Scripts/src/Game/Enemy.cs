@@ -8,16 +8,20 @@ public class Enemy : MonoBehaviour
     {
         Invalide, Wait, Run, End, Dead
     }
-    private GameObject PosNode;
-    private int moveIndex = 0;
-    private Vector3 nextPos;
-    private EnemyState enemyState = EnemyState.Invalide;
+
+
     public float speed = 0.1f;
-    private EnemyController enemyController;
     // Use this for initialization
     public GameObject healthBarPos;
     public GameObject healthBarPrefab;
     public int healthTotalCount;
+    public int gold;
+
+    private EnemyController enemyController;
+    private GameObject PosNode;
+    private int moveIndex = 0;
+    private Vector3 nextPos;
+    private EnemyState enemyState = EnemyState.Invalide;
     private GameObject healthBar;
     private UIController uIController;
     private  int healthCount;
@@ -107,7 +111,9 @@ public class Enemy : MonoBehaviour
                     break;
                 case EnemyState.Dead:
                     //如果敌人死了。播放一段敌人死了的动画
-
+                    //敌人被打死了 那么给金币位置增加相应的金币值
+                    int endGold = Global.GetInstance().GetCurrentLevel().currentGold + gold;
+                    Global.GetInstance().GetCurrentLevel().SetCurrentGold(endGold);
                     break;
                 case EnemyState.End:
                     Destroy(healthBar);

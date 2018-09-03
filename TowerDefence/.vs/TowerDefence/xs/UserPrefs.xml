@@ -1,6 +1,12 @@
 ﻿<Properties StartupConfiguration="{28866EB0-7993-C171-348D-8535A8E3480D}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/src/Game/Enemy.cs">
+    <Files>
+      <File FileName="Assets/Scripts/src/Consts.cs" Line="11" Column="1" />
+      <File FileName="Assets/Scripts/Global.cs" Line="107" Column="52" />
+      <File FileName="Assets/Scripts/src/Game/Enemy.cs" Line="112" Column="38" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
