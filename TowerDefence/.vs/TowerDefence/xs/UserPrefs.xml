@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{28866EB0-7993-C171-348D-8535A8E3480D}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/src/Game/Enemy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Res/Levels/Earth0.xml">
     <Files>
       <File FileName="Assets/Scripts/src/Consts.cs" Line="11" Column="1" />
       <File FileName="Assets/Scripts/Global.cs" Line="107" Column="52" />
-      <File FileName="Assets/Scripts/src/Game/Enemy.cs" Line="112" Column="38" />
+      <File FileName="Assets/Scripts/src/Game/Enemy.cs" Line="151" Column="10" />
+      <File FileName="Assets/Res/Levels/Earth0.xml" Line="14" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
