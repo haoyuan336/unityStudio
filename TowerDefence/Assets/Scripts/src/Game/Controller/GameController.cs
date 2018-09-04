@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     public GameObject plane;
     public GameState gameState;
     // Use this for initialization
-    public GameObject levelLabel;
+    //public GameObject levelLabel;
     public List<GameObject> mapPrefabs;
     private GameObject map;
     public Canvas canvas;
@@ -25,7 +25,8 @@ public class GameController : MonoBehaviour
 
 
         //进入游戏的时候 先读取xml数据 取出关卡数据
-        //根据当前的关卡数，初始化场景
+        //根据当前的关卡数，初始化场景levelLabel
+
         int level = Global.GetInstance().GetLevelNum();
 
         Global.GetInstance().SetCanvas(canvas);
@@ -38,10 +39,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         mainCamera.transform.LookAt(plane.transform.position);
-
-
-
-
     }
 
     public void GameStart(string info)
@@ -77,7 +74,7 @@ public class GameController : MonoBehaviour
                     Debug.Log("游戏开始运行了");
                     //actionEvent.Invoke();
                     //Debug.Log("Game Controller  = " + Tool.GetCurrentLevel().levelText);
-                    levelLabel.transform.GetComponent<Text>().text = Global.GetInstance().GetLevelNum().ToString();
+                    //levelLabel.transform.GetComponent<Text>().text = Global.GetInstance().GetLevelNum().ToString();
                     break;
                 default:
                     break;

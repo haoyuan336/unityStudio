@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 public class LevelButton : MonoBehaviour {
 
     // Use this for initialization
+    public GameObject levelTextPos;
     public GameObject levelTextPrefab;
     private GameObject uiCanavs;
-    public GameObject levelTextPos;
     private GameObject levelLabel;
     private int index;
     private Color currentColor;
     private bool isOvering;
+    private bool isOnShow = false;
 	void Start () {
         currentColor = transform.GetComponent<Renderer>().material.color;
 	}
@@ -24,9 +24,10 @@ public class LevelButton : MonoBehaviour {
             levelLabel.transform.position = pos;
             if (levelTextPos.transform.position.z < 1){
                 levelLabel.GetComponent<Text>().text = index.ToString();
-              
+                isOnShow = true;
             }
             else{
+                isOnShow = false;
                 levelLabel.GetComponent<Text>().text = "";
 
             }
@@ -35,10 +36,11 @@ public class LevelButton : MonoBehaviour {
         //if (levelLabel.transform.position.){
 
         //}
-        if (Input.GetMouseButtonUp(0) && isOvering){
-            Debug.Log("选中了关卡");
-            Global.GetInstance().SetLevel(index);
-            SceneManager.LoadScene("GameScene");
+        if (Input.GetMouseButtonUp(0) && isOvering && isOnShow){
+            //Debug.Log("选中了关卡");
+            //Global.GetInstance().SetLevel(index);
+            //SceneManager.LoadScene("GameScene");
+            Global.GetInstance().EnterGame(index);
         }
     }
     public void Init(GameObject canvas, int i){
@@ -58,5 +60,4 @@ public class LevelButton : MonoBehaviour {
     public void buttonDown(){
         transform.GetComponent<Renderer>().material.color = Color.red;
     }
-   
 }

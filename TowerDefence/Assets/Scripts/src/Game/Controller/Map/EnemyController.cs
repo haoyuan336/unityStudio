@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public List<GameObject> enemyList;
+
     // Use this for initialization
     public List<GameObject> enemyPrefabs;
     public GameObject posNodes;
@@ -16,10 +18,13 @@ public class EnemyController : MonoBehaviour
     private int createWaveCount = 0;
     private Level currentLevel;
     private Wave currentWave;
-    public List<GameObject> enemyList;
+
+
+    
+
     void Start()
     {
-
+        Global.GetInstance().SetEnemyController(this);
     }
     private void Update()
     {
@@ -88,5 +93,11 @@ public class EnemyController : MonoBehaviour
     public void removeOneEnemy(GameObject obj){
         Destroy(obj);
         enemyList.Remove(obj);
+    }
+    public void SetGameOver(bool value){
+        isRunning = false;
+        foreach (GameObject obj in enemyList){
+            obj.transform.GetComponent<Enemy>().SetGameOver(value);
+        }
     }
 }

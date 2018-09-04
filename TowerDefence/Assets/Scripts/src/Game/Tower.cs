@@ -28,12 +28,18 @@ public class Tower : MonoBehaviour
     private GameObject levelLabel;
     private int currentLevel;
     private TowerData towerData;
+
+    private enum TowerState{
+        Invalide, Wait,Running,End
+    }
+    private TowerState state = TowerState.Invalide;
     //public float  
     private void Awake()
     {
         currentVector = new Vector3(10, transform.position.y, 100);
         //bulletPool = new ObjectPool(bulletPrefab, 3);
         currentColor = transform.GetComponent<Renderer>().material.color;
+        SetState(TowerState.Running);
     }
     void Start()
     {
@@ -58,6 +64,14 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (state == TowerState.Running){
+            AttackLogic();
+        }
+       
+
+    }
+
+    void AttackLogic(){
         //取出父节点里面 的 所有敌人的节点
         //遍历敌人节点 ，根据攻击距离寻找需要攻击的敌人 敌人列表不是空的，并且被攻击的对象 是null的 ，这时候寻找敌人
         if (enemyList != null && attackTarget == null)
@@ -114,8 +128,8 @@ public class Tower : MonoBehaviour
             Global.GetInstance().GetUIController().ShowTowerUpdateUI(transform);
             ShowAttackRange();
         }
-
     }
+
     void ShowAttackRange()
     {
         towerRange.SetActive(true);
@@ -174,4 +188,21 @@ public class Tower : MonoBehaviour
     {
         Destroy(levelLabel);
     }
+    public void SetGameOver(bool value){
+        SetState(TowerState.Wait);
+    }
+    private void SetState(TowerState ste){
+        if (state == ste){
+
+        }else{
+            switch(ste){
+                case TowerState.Running:
+                    break;
+                default:
+                    break;
+            }
+        }
+        state = ste;
+    }
+
 }

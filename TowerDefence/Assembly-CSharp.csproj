@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\src\Game\Controller\GameController.cs" />
     <Compile Include="Assets\Scripts\src\Game\Controller\Map\EnemyController.cs" />
     <Compile Include="Assets\Scripts\src\Game\Controller\Map\LevelController.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Controller\Map\MapController.cs" />
     <Compile Include="Assets\Scripts\src\Game\Controller\Map\TowerController.cs" />
     <Compile Include="Assets\Scripts\src\Game\Controller\Map\UIController.cs" />
     <Compile Include="Assets\Scripts\src\Game\Data\Level.cs" />
@@ -80,6 +81,8 @@
     <Compile Include="Assets\Scripts\src\Game\Tower.cs" />
     <Compile Include="Assets\Scripts\src\Game\TowerBase.cs" />
     <Compile Include="Assets\Scripts\src\UI\BuildTowerUI.cs" />
+    <Compile Include="Assets\Scripts\src\UI\GameOverUI.cs" />
+    <Compile Include="Assets\Scripts\src\UI\MoveUpText.cs" />
     <Compile Include="Assets\Scripts\src\UI\ProgressBar.cs" />
     <Compile Include="Assets\Scripts\src\UI\TopBar.cs" />
     <Compile Include="Assets\Scripts\src\UI\UpdateTowerUI.cs" />

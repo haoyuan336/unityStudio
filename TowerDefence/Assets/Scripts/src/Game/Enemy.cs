@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     private enum EnemyState
@@ -16,7 +16,13 @@ public class Enemy : MonoBehaviour
     public GameObject healthBarPrefab;
     public int healthTotalCount;
     public int gold;
+    public GameObject addGoldPos;
+    public GameObject textPrefab;
+    public GameObject nameLabelPos;
+    public string nameStr;
+    public int damage;
 
+    private GameObject nameLabel;
     private EnemyController enemyController;
     private GameObject PosNode;
     private int moveIndex = 0;
@@ -38,6 +44,9 @@ public class Enemy : MonoBehaviour
         healthBar.transform.parent = Global.GetInstance().GetCanvas().transform;
         healthBar.transform.position = Camera.main.WorldToScreenPoint(healthBarPos.transform.position);
         healthCount = healthTotalCount;
+        nameLabel = Instantiate(textPrefab);
+        nameLabel.transform.parent = Global.GetInstance().GetCanvas().transform;
+        nameLabel.transform.GetComponent<Text>().text = nameStr;
     }
     public void initPosNode(GameObject obj)
     {
@@ -77,12 +86,15 @@ public class Enemy : MonoBehaviour
                     SetState(EnemyState.End);
                 }
             }
-
+            nameLabel.transform.position = Camera.main.WorldToScreenPoint(nameLabelPos.transform.position);
         }
     }
     private void moveNextPos()
     {
         if (moveIndex == PosNode.transform.childCount){
+            //移动到终点了
+            //那么应该让大本营 掉血了
+            Global.GetInstance().GetMapController().BeAttack(damage);
             SetState(EnemyState.End);
         }else{
             nextPos = PosNode.transform.GetChild(moveIndex).transform.position;
@@ -110,14 +122,31 @@ public class Enemy : MonoBehaviour
                     nextPos = transform.position;
                     break;
                 case EnemyState.Dead:
+
+
+                   
+
                     //如果敌人死了。播放一段敌人死了的动画
                     //敌人被打死了 那么给金币位置增加相应的金币值
                     int endGold = Global.GetInstance().GetCurrentLevel().currentGold + gold;
                     Global.GetInstance().GetCurrentLevel().SetCurrentGold(endGold);
+                    GameObject addGoldText = Instantiate(textPrefab);
+
+
+
+                    addGoldText.transform.parent = Global.GetInstance().GetCanvas().transform;
+                    addGoldText.transform.position = Camera.main.WorldToScreenPoint(addGoldPos.transform.position);
+                    addGoldText.transform.GetComponent<Text>().text = "+" + gold.ToString();
+                    addGoldText.AddComponent<MoveUpText>();
+
+
+                    //SleepTimeout.
                     break;
                 case EnemyState.End:
+                    Destroy(nameLabel);
                     Destroy(healthBar);
                     enemyController.removeOneEnemy(gameObject);
+
                     break;
                 default:
                     break;
@@ -150,6 +179,9 @@ public class Enemy : MonoBehaviour
             return true;
         }
         return false;
+    }
+    public void SetGameOver(bool value){
+        SetState(EnemyState.Wait);
     }
 
 }

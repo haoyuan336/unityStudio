@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+
 public class Global
 {
     private static Global global;
@@ -14,6 +16,8 @@ public class Global
     private int goldCount;
     private TopBar topBar;
     private Tool tool;
+    private MapController mapController;
+    private EnemyController enemyController;
     public Level currentLevel;
     public static Global GetInstance()
     {
@@ -42,10 +46,7 @@ public class Global
     {
         return currentLevelNum;
     }
-    public void SetLevel(int val)
-    {
-        currentLevelNum = val;
-    }
+
     public void SetController(GameController ctl)
     {
         gameController = ctl;
@@ -109,5 +110,34 @@ public class Global
             buildCast.Add(td.updateCastList[0]);
         }
         return buildCast;
+    }
+    public void SetMapController(MapController ctl){
+        mapController = ctl;
+    }
+    public MapController GetMapController(){
+        return mapController;
+    }
+    public void SetEnemyController(EnemyController ctl){
+        enemyController = ctl;
+    }
+    public EnemyController GetEnemyController(){
+        return enemyController;   
+    }
+    public void SetGameOver(bool value){
+        //游戏结束 告诉主要的控制器，游戏结束了
+        //首先告诉敌人控制器，游戏结束不要在出敌人了
+        enemyController.SetGameOver(value);
+        towerController.SetGameOver(value);
+
+    }
+    public void EnterHome(){
+        //进入选择关卡的页面
+        SceneManager.LoadScene("ChooseLevelScene");
+
+    }
+    public void EnterGame(int level){
+        currentLevelNum= level;
+        Debug.Log("current Level num = " + level);
+        SceneManager.LoadScene("GameScene");
     }
 }
