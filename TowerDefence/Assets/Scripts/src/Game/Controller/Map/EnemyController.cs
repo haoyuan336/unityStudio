@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     public GameObject posNodes;
     public float waveDuraction; //波次之间的时间间隔
     public float enemyDuraction; //敌人之间的时间间隔
-    private bool isRunning = false;
+    //private bool isRunning = false;
     private float createEnemyTime = 0.0f;
     private int createEnemyCount = 0;
     private float createWaveTime = 0.0f;
@@ -20,7 +20,13 @@ public class EnemyController : MonoBehaviour
     private Wave currentWave;
 
 
-    
+
+
+    private enum CtlState
+    {
+        Invalide, Wait, Running,End, Over
+    }
+    private CtlState state = CtlState.Invalide;
 
     void Start()
     {
@@ -36,7 +42,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isRunning)
+        if (state == CtlState.Running)
         {
             if (createEnemyTime > enemyDuraction)
             {
@@ -55,12 +61,19 @@ public class EnemyController : MonoBehaviour
                     CreateAnWave();
                 }
             }
+        } 
+        if (state == CtlState.End){
+            //敌人控制器不在运行中了。然后这时候监控一下敌人是不是都死了, 并且大本营的血量要高于0 
+            if (enemyList.Count == 0 && Global.GetInstance().GetMapController().GetHomeHealthCount() > 0){
+                GameWin();
+            }
         }
     }
     public void GameStart()
     {
         currentLevel = Global.GetInstance().GetCurrentLevel();
-        isRunning = true;
+        //isRunning = true;
+        SetState(CtlState.Running);
         CreateAnWave();
     }
     private void CreateAnEnemy(int type)
@@ -79,7 +92,8 @@ public class EnemyController : MonoBehaviour
     private void CreateAnWave(){
 
         if (createWaveCount == currentLevel.GetWaveCount()){
-            isRunning = false;
+            //isRunning = false;
+            SetState(CtlState.End);
             //Debug.Log("敌人增加结束了");
             //告诉游戏控制器
         }else{
@@ -95,9 +109,29 @@ public class EnemyController : MonoBehaviour
         enemyList.Remove(obj);
     }
     public void SetGameOver(bool value){
-        isRunning = false;
+        //isRunning = false;
+        SetState(CtlState.Over);
         foreach (GameObject obj in enemyList){
             obj.transform.GetComponent<Enemy>().SetGameOver(value);
+        }
+    }
+    private void GameWin(){
+        //这时候创建游戏胜利的界面 ，告诉MapController 吧
+        //Global.GetInstance().GetMapController().SetGameWin(); 
+        SetState(CtlState.Over);
+        Global.GetInstance().SetGameOver(true);
+    }
+    void SetState(CtlState ste){
+        if (state != ste){
+            switch(ste){
+                case CtlState.Wait:
+                    break;
+                case CtlState.Running:
+                    break;
+                default:
+                    break;
+            }
+            state = ste;
         }
     }
 }

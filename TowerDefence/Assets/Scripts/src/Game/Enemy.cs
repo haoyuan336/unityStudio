@@ -128,8 +128,8 @@ public class Enemy : MonoBehaviour
 
                     //如果敌人死了。播放一段敌人死了的动画
                     //敌人被打死了 那么给金币位置增加相应的金币值
-                    int endGold = Global.GetInstance().GetCurrentLevel().currentGold + gold;
-                    Global.GetInstance().GetCurrentLevel().SetCurrentGold(endGold);
+                    int endGold = Global.GetInstance().GetMapController().goldCount + gold;
+                    Global.GetInstance().GetMapController().SetCurrentGold(endGold);
                     GameObject addGoldText = Instantiate(textPrefab);
 
 

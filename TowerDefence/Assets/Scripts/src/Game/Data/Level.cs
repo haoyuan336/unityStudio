@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Level
 {
-    public int currentGold = 0;
     public static void SetLevel(int level)
     {
     }
@@ -28,9 +27,5 @@ public class Level
     {
         return waveList.Count;
     }
-    public void SetCurrentGold(int gold)
-    {
-        currentGold = gold;
-        Global.GetInstance().GetTopBar().SetGoldNumText(gold);
-    }
+
 }

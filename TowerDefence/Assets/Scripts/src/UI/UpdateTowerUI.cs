@@ -33,10 +33,10 @@ public class UpdateTowerUI : MonoBehaviour
                     if (currentTowerLevel >= (towerData.updateCastList.Count - 1)){
                         Debug.Log("满级。不可以在升级");
                     }else{
-                        int endGold = Global.GetInstance().GetCurrentLevel().currentGold - (int)towerData.updateCastList[currentTowerLevel + 1];
+                        int endGold = Global.GetInstance().GetMapController().goldCount - (int)towerData.updateCastList[currentTowerLevel + 1];
                         if (endGold >= 0){
                             //金币够 可以升级
-                            Global.GetInstance().GetCurrentLevel().SetCurrentGold(endGold);
+                            Global.GetInstance().GetMapController().SetCurrentGold(endGold);
                             tower.transform.GetComponent<Tower>().UpdateTower();
                             Destroy(gameObject);
                         }else{
@@ -51,8 +51,8 @@ public class UpdateTowerUI : MonoBehaviour
                 Global.GetInstance().GetTowerController().SellTower(tower);
                 Destroy(gameObject);
                 {
-                    int endGold = Global.GetInstance().GetCurrentLevel().currentGold + (int)towerData.sellGoldList[currentTowerLevel];
-                    Global.GetInstance().GetCurrentLevel().SetCurrentGold(endGold);
+                    int endGold = Global.GetInstance().GetMapController().goldCount + (int)towerData.sellGoldList[currentTowerLevel];
+                    Global.GetInstance().GetMapController().SetCurrentGold(endGold);
 
                 }
 

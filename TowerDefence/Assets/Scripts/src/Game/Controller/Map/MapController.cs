@@ -9,9 +9,12 @@ public class MapController : MonoBehaviour {
     public int homeHealthCount;
     public GameObject gameOverUIPrefab;
     public GameObject gameOverUIPos;
+    public GameObject gameWinUIPrefab; 
     // Use this for initialization
     private GameObject homeHealCountLabel;
     private GameObject gameOverUI;
+    private GameObject gameWinUI;
+    public int goldCount;
 	void Start () {
         Global.GetInstance().SetMapController(this);
         homeHealCountLabel = Instantiate(textPrefab);
@@ -24,14 +27,7 @@ public class MapController : MonoBehaviour {
 	void Update () {
 		
 	}
-    void GameOver(bool value){
-        Global.GetInstance().SetGameOver(value);
-        if (!value){
-            gameOverUI = Instantiate(gameOverUIPrefab);
-            gameOverUI.transform.parent = Global.GetInstance().GetCanvas().transform;
-            gameOverUI.transform.position = Camera.main.WorldToScreenPoint(gameOverUIPos.transform.position);
-        }
-    }
+  
     public void BeAttack(int damage){
         int endHealth = homeHealthCount - damage;
         if (endHealth <= 0){
@@ -42,7 +38,28 @@ public class MapController : MonoBehaviour {
         homeHealCountLabel.transform.GetComponent<Text>().text = homeHealthCount.ToString();
         if (homeHealthCount == 0){
             //游戏结束
-            GameOver(false);
+            Global.GetInstance().SetGameOver(false);
         }
+    }
+    public int GetHomeHealthCount(){
+        return homeHealthCount;
+    }
+    public void SetGameOver(bool value){
+        if (value){
+            //游戏胜利 ，这时候 渲染游戏胜利的界面
+            gameWinUI = Instantiate(gameWinUIPrefab);
+            gameWinUI.transform.parent = Global.GetInstance().GetCanvas().transform;
+            gameWinUI.transform.position = Camera.main.WorldToScreenPoint(gameOverUIPos.transform.position);
+        }
+        if (!value)
+        {
+            gameOverUI = Instantiate(gameOverUIPrefab);
+            gameOverUI.transform.parent = Global.GetInstance().GetCanvas().transform;
+            gameOverUI.transform.position = Camera.main.WorldToScreenPoint(gameOverUIPos.transform.position);
+        }
+    }
+    public void SetCurrentGold(int gold){
+        goldCount = gold;
+        Global.GetInstance().GetTopBar().currentGoldLabel.transform.GetComponent<Text>().text = gold.ToString();
     }
 }

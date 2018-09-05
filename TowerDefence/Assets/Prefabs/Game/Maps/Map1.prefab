@@ -1771,3 +1771,6 @@ MonoBehaviour:
   gameOverUIPrefab: {fileID: 1716850888301852, guid: 01731d2969022426eaab294c21f4b0b1,
     type: 2}
   gameOverUIPos: {fileID: 1544881323693486}
+  gameWinUIPrefab: {fileID: 1716850888301852, guid: 43317325e0d6e4ac3aba83799fc14d7d,
+    type: 2}
+  goldCount: 100

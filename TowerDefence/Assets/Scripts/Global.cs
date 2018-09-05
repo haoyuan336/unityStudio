@@ -13,12 +13,13 @@ public class Global
     private Canvas canvas;
     private UIController uiController;
     private TowerController towerController;
-    private int goldCount;
+    //private int goldCount;
     private TopBar topBar;
-    private Tool tool;
+    private GameTool tool;
     private MapController mapController;
     private EnemyController enemyController;
-    public Level currentLevel;
+    private CheTwrCtl chooseTowerCtl;
+    //public Level currentLevel;
     public static Global GetInstance()
     {
         if (global == null)
@@ -32,15 +33,12 @@ public class Global
     private void Init()
     {
 
-        goldCount = 0;
+        //goldCount = 0;
         currentLevelNum = 0;
-        tool = new Tool();
+        tool = new GameTool();
         tool.ReadLevelXml(Consts.LevelDir + "Earth" + currentLevelNum + ".xml");
-        currentLevel = tool.GetLevel(currentLevelNum);
-
-
+        //currentLevel = tool.GetLevel(currentLevelNum);
         tool.ReadTowerInfo(Consts.LevelDir + "Tower.xml");
-
     }
     public int GetLevelNum()
     {
@@ -81,11 +79,16 @@ public class Global
     }
     public void AddGold(int count)
     {
-        goldCount += count;
+        //goldCount += count;
+        mapController.goldCount += count;
+
     }
     public int GetGold()
     {
-        return goldCount;
+        //return goldCount;
+        int count = mapController.goldCount;
+        return count;
+        //return mapController.goldCount;
     }
     public void SetTopBar(TopBar tb){
         topBar = tb;
@@ -94,7 +97,8 @@ public class Global
         return topBar;
     }
     public Level GetCurrentLevel(){
-        return currentLevel;
+        //return currentLevel;
+        return tool.GetLevelList()[currentLevelNum];
     }
     public string GetEarthName(){
         return tool.earthName;
@@ -128,6 +132,7 @@ public class Global
         //首先告诉敌人控制器，游戏结束不要在出敌人了
         enemyController.SetGameOver(value);
         towerController.SetGameOver(value);
+        mapController.SetGameOver(value);
 
     }
     public void EnterHome(){
@@ -139,5 +144,19 @@ public class Global
         currentLevelNum= level;
         Debug.Log("current Level num = " + level);
         SceneManager.LoadScene("GameScene");
+    }
+    public void EnterNextGame(){
+        currentLevelNum += 1;
+        SceneManager.LoadScene("GameScene");
+
+    }
+    public GameTool GetGameTool(){
+        return tool;
+    }
+    public void SetChooseTowerCtl(CheTwrCtl ctl){
+        chooseTowerCtl = ctl;
+    }
+    public CheTwrCtl GetChooseTowerCtl(){
+        return chooseTowerCtl;
     }
 }

@@ -33,12 +33,12 @@ public class BuildTowerUI : MonoBehaviour {
 
 
             int cast = (int)towerCastList[towerId];
-            int endGold = Global.GetInstance().GetCurrentLevel().currentGold - cast;
+            int endGold = Global.GetInstance().GetMapController().goldCount - cast;
 
             if (endGold < 0){
                 Debug.Log("Show alert tips  Gold Not Enough");
             }else{
-                Global.GetInstance().GetCurrentLevel().SetCurrentGold(endGold);
+                Global.GetInstance().GetMapController().SetCurrentGold(endGold);
                 Global.GetInstance().GetTowerController().BuildOneTower(towerId, towerBase);
                 Destroy(gameObject);
             }

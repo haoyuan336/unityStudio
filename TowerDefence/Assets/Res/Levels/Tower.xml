@@ -37,8 +37,8 @@
         
         <SpecialSkillName>None</SpecialSkillName>
     </Tower>
-     <Tower id="0">
-        <Type>0</Type>
+     <Tower id="1">
+        <Type>1</Type>
         <TowerName>无敌小板砖</TowerName>
         <TowerName>无敌中板砖</TowerName>
         <TowerName>无敌大板砖</TowerName>
