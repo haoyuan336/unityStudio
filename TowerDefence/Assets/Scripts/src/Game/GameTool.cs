@@ -61,25 +61,28 @@ public class GameTool
             //创建根阶段
             XmlElement root = xmlDoc.CreateElement("transforms");
             //创建第一个子节点
-            XmlElement elmXml = xmlDoc.CreateElement("rotation");
-            //设置节点属性
-            elmXml.SetAttribute("id", "0");
-            elmXml.SetAttribute("name", "first");
-            //创建第一个子节点的子节点
-            XmlElement rotation_x = xmlDoc.CreateElement("x");
-            rotation_x.InnerText = "0";
-            XmlElement rotation_y = xmlDoc.CreateElement("y");
-            rotation_y.InnerText = "0";
-            XmlElement rotation_z = xmlDoc.CreateElement("z");
-            rotation_z.InnerText = "0";
-            elmXml.AppendChild(rotation_x);
-            elmXml.AppendChild(rotation_y);
-            elmXml.AppendChild(rotation_z);
-            root.AppendChild(elmXml);
-            xmlDoc.AppendChild(root);
+            //XmlElement elmXml = xmlDoc.CreateElement("rotation");
+            ////设置节点属性
+            //elmXml.SetAttribute("id", "0");
+            //elmXml.SetAttribute("name", "first");
+            ////创建第一个子节点的子节点
+            ////XmlElement rotation_x = xmlDoc.CreateElement("x");
+            ////rotation_x.InnerText = "0";
+            ////XmlElement rotation_y = xmlDoc.CreateElement("y");
+            ////rotation_y.InnerText = "0";
+            ////XmlElement rotation_z = xmlDoc.CreateElement("z");
+            ////rotation_z.InnerText = "0";
+            ////elmXml.AppendChild(rotation_x);
+            ////elmXml.AppendChild(rotation_y);
+            ////elmXml.AppendChild(rotation_z);
+            //root.AppendChild(elmXml);
+            //xmlDoc.AppendChild(root);
             xmlDoc.Save(filePath);
 
         }
+    }
+    public void CreateXmlWithName(){
+
     }
     //public Level GetCurrentLevel()
     //{

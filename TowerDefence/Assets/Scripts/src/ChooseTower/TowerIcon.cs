@@ -25,7 +25,7 @@ public class TowerIcon : MonoBehaviour
         switch(value){
             case "active":
                 //告诉选择tower 的管理区，我点击的是哪个icon
-                Global.GetInstance().GetChooseTowerCtl().ClickTowerIcon(towerData);
+                Global.GetInstance().GetChooseTowerInfo().ShowTowerData(towerData);
                 break;
             default:
                 break;

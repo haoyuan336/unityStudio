@@ -64,4 +64,19 @@ public class TowerData
     public void SetSpecialSkillName(string str){
         specialSkill = str;
     }
+    public string GetTowerName(){
+        return towerName[0]; 
+    }
+    public float GetBuildCast(){
+        return updateCastList[0]; 
+    }
+    public float GetDamage(){
+        return attackDamageList[0];
+    }
+    public float GetAttackSpeed(){
+        return attackDuractionList[0];
+    }
+    public float GetAttackRangeList(){
+        return attackRangeList[0];
+    }
 }

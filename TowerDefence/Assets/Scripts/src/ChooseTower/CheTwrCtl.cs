@@ -5,6 +5,7 @@ using UnityEngine;
 public class CheTwrCtl : MonoBehaviour {
     public GameObject towerIconPrefab;
     public GameObject allTowerSVContent;
+    public GameObject chooseTowerInfoPrefab;
     // Use this for initialization
     private List<GameObject> towerIconList = new List<GameObject>();
 	void Start () {
@@ -26,13 +27,21 @@ public class CheTwrCtl : MonoBehaviour {
                
             }
         }
+        Global.GetInstance().SetChooseTowerCtl(this);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-    public void ClickTowerIcon(TowerData td){
-
+    public void OnButtonClick(string value){
+        switch(value){ 
+            case "play":
+                Debug.Log("开始游戏");
+                break;
+            default:
+                break;
+        }
     }
+
 }

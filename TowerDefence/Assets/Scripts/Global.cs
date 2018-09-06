@@ -20,6 +20,8 @@ public class Global
     private EnemyController enemyController;
     private CheTwrCtl chooseTowerCtl;
     //public Level currentLevel;
+    private ChooseTowerInfo chooseTowerInfo;
+    private GameLocalData gameLocalData; //游戏的本地储存
     public static Global GetInstance()
     {
         if (global == null)
@@ -39,6 +41,7 @@ public class Global
         tool.ReadLevelXml(Consts.LevelDir + "Earth" + currentLevelNum + ".xml");
         //currentLevel = tool.GetLevel(currentLevelNum);
         tool.ReadTowerInfo(Consts.LevelDir + "Tower.xml");
+        gameLocalData = new GameLocalData(); //游戏进入的时候，实例化一个游戏本地储存的数据
     }
     public int GetLevelNum()
     {
@@ -158,5 +161,11 @@ public class Global
     }
     public CheTwrCtl GetChooseTowerCtl(){
         return chooseTowerCtl;
+    }
+    public void SetChooseTowerInfo(ChooseTowerInfo ctinfo){
+        chooseTowerInfo = ctinfo;
+    }
+    public ChooseTowerInfo GetChooseTowerInfo(){
+        return chooseTowerInfo;
     }
 }
