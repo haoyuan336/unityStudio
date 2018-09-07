@@ -79,4 +79,7 @@ public class TowerData
     public float GetAttackRangeList(){
         return attackRangeList[0];
     }
+    public int GetTowerType(){
+        return type;
+    }
 }

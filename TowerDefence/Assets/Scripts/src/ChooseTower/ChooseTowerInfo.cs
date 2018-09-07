@@ -42,5 +42,10 @@ public class ChooseTowerInfo : MonoBehaviour {
         damageRangeLabel.GetComponent<Text>().text = "攻击范围:" + towerData.GetAttackRangeList().ToString();
         buildCastLabel.GetComponent<Text>().text ="建造花费:" + towerData.GetBuildCast().ToString();
 
+
+        UpdateButtonState();
+    }
+    private void UpdateButtonState(){
+
     }
 }

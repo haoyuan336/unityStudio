@@ -21,7 +21,10 @@ public class Global
     private CheTwrCtl chooseTowerCtl;
     //public Level currentLevel;
     private ChooseTowerInfo chooseTowerInfo;
+    private ChooseTowerIconPosCtl chooseTowerIconPosCtl;  //塔的位置的管理
+
     private GameLocalData gameLocalData; //游戏的本地储存
+    private List<TowerData> currentTowerData = new List<TowerData>();
     public static Global GetInstance()
     {
         if (global == null)
@@ -42,6 +45,9 @@ public class Global
         //currentLevel = tool.GetLevel(currentLevelNum);
         tool.ReadTowerInfo(Consts.LevelDir + "Tower.xml");
         gameLocalData = new GameLocalData(); //游戏进入的时候，实例化一个游戏本地储存的数据
+    }
+    public GameLocalData GetLocalData(){
+        return gameLocalData;
     }
     public int GetLevelNum()
     {
@@ -138,6 +144,10 @@ public class Global
         mapController.SetGameOver(value);
 
     }
+    public void EnterChooseTowerScene(int level){
+        currentLevelNum = level;
+        SceneManager.LoadScene("ChooseTower");
+    }
     public void EnterHome(){
         //进入选择关卡的页面
         SceneManager.LoadScene("ChooseLevelScene");
@@ -167,5 +177,14 @@ public class Global
     }
     public ChooseTowerInfo GetChooseTowerInfo(){
         return chooseTowerInfo;
+    }
+    public void SetChooseTowerIconPosCtl(ChooseTowerIconPosCtl ctl){
+        chooseTowerIconPosCtl = ctl;
+    }
+    public ChooseTowerIconPosCtl GetChooseTowerIconPosCtl(){
+        return chooseTowerIconPosCtl;
+    }
+    public void SetCurrentTowerDatas(List<GameObject> values){
+
     }
 }

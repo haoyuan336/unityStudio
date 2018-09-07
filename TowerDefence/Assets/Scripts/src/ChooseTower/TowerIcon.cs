@@ -25,7 +25,12 @@ public class TowerIcon : MonoBehaviour
         switch(value){
             case "active":
                 //告诉选择tower 的管理区，我点击的是哪个icon
+                Global.GetInstance().GetChooseTowerIconPosCtl().AddTowerIconPos(towerData);
+                //todo 这里比较重要的一点，先增加了Tower的位置icon，然后再显示此Tower的相关信息,从而能够知道这个Tower是要装备还是要卸掉
                 Global.GetInstance().GetChooseTowerInfo().ShowTowerData(towerData);
+
+
+
                 break;
             default:
                 break;

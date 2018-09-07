@@ -37,7 +37,7 @@ public class GameLocalData
             XmlDocument xmlDoc = new XmlDocument();
             XmlElement rootNode = xmlDoc.CreateElement("content");
 
-            XmlElement chooseTowerCountElement = xmlDoc.CreateElement("choose-tower-count");
+            XmlElement chooseTowerCountElement = xmlDoc.CreateElement("ChooseTowerCount");
             chooseTowerCountElement.InnerText = "3";
             rootNode.AppendChild(chooseTowerCountElement);
             xmlDoc.AppendChild(rootNode);
@@ -47,8 +47,7 @@ public class GameLocalData
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(gameDataPath);
             XmlNode rootNode = xmlDoc.SelectSingleNode("content");
-            towerPosCount = int.Parse(rootNode.SelectSingleNode("choose-tower-coun").InnerText);
-            Debug.Log("tower pos count = " + towerPosCount);
+            towerPosCount = int.Parse(rootNode.SelectSingleNode("ChooseTowerCount").InnerText);
         }
     }
     //获取tower 位置数量的接口

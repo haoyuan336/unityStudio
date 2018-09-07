@@ -5,6 +5,6 @@ using System.Linq;
 using System.Text;
 
 public static class Consts{
-    public static readonly string LevelDir = Application.dataPath + @"/Res/Levels/";
-    public static readonly string resourcesPath = Application.dataPath + @"/Res/";
+    public static readonly string LevelDir = Application.dataPath + @"/Resources/Res/Levels/";
+    public static readonly string resourcesPath = Application.dataPath + @"/Resources/Res/";
 }

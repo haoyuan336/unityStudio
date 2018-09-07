@@ -6,6 +6,7 @@ public class CheTwrCtl : MonoBehaviour {
     public GameObject towerIconPrefab;
     public GameObject allTowerSVContent;
     public GameObject chooseTowerInfoPrefab;
+
     // Use this for initialization
     private List<GameObject> towerIconList = new List<GameObject>();
 	void Start () {
@@ -38,6 +39,12 @@ public class CheTwrCtl : MonoBehaviour {
         switch(value){ 
             case "play":
                 Debug.Log("开始游戏");
+                break;
+            case "start":
+                //开始游戏
+                //
+                Global.GetInstance().SetCurrentTowerDatas(Global.GetInstance().GetChooseTowerIconPosCtl().GetCurrentTowerIconsList());
+                Global.GetInstance().EnterGame(Global.GetInstance().GetLevelNum());
                 break;
             default:
                 break;
