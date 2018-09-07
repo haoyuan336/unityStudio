@@ -24,7 +24,7 @@ public class Global
     private ChooseTowerIconPosCtl chooseTowerIconPosCtl;  //塔的位置的管理
 
     private GameLocalData gameLocalData; //游戏的本地储存
-    private List<TowerData> currentTowerData = new List<TowerData>();
+    private List<TowerData> currentTowerDatas = new List<TowerData>();
     public static Global GetInstance()
     {
         if (global == null)
@@ -185,6 +185,11 @@ public class Global
         return chooseTowerIconPosCtl;
     }
     public void SetCurrentTowerDatas(List<GameObject> values){
-
+        for (int i = 0; i < values.Count; i ++){
+            currentTowerDatas.Add(values[i].transform.GetComponent<TowerIconPos>().GetTowerData());
+        }
+    }
+    public List<TowerData> GetCurrentTowerDatas(){
+        return currentTowerDatas;
     }
 }

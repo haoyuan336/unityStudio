@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\src\UI\MoveUpText.cs" />
     <Compile Include="Assets\Scripts\src\UI\ProgressBar.cs" />
     <Compile Include="Assets\Scripts\src\UI\TopBar.cs" />
+    <Compile Include="Assets\Scripts\src\UI\TowerIconButton.cs" />
     <Compile Include="Assets\Scripts\src\UI\UpdateTowerUI.cs" />
     <Compile Include="Assets\Simple UI\Samples\IconPreview.cs" />
     <None Include="Assets\Resources\Res\game-data.xml" />

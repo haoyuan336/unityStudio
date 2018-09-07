@@ -40,7 +40,9 @@ public class LevelButton : MonoBehaviour {
             //Debug.Log("选中了关卡");
             //Global.GetInstance().SetLevel(index);
             //SceneManager.LoadScene("GameScene");
-            Global.GetInstance().EnterGame(index);
+            //Global.GetInstance().EnterGame(index);
+            //todo 进入选择tower 的页面,并且要将选中的关卡数传递过来。
+            Global.GetInstance().EnterChooseTowerScene(index);
         }
     }
     public void Init(GameObject canvas, int i){
