@@ -6,6 +6,7 @@ public class GameLocalData
 {
     private string gameDataPath = Consts.resourcesPath + @"game-data.xml";
     private int towerPosCount; //塔的位置数量 可以选择的tower 的位置数量
+    private int diamondCount; //储存在本地的钻石的个数
     public GameLocalData()
     {
 
@@ -48,6 +49,7 @@ public class GameLocalData
             xmlDoc.Load(gameDataPath);
             XmlNode rootNode = xmlDoc.SelectSingleNode("content");
             towerPosCount = int.Parse(rootNode.SelectSingleNode("ChooseTowerCount").InnerText);
+            diamondCount = int.Parse(rootNode.SelectSingleNode("DiamondCount").InnerText);
         }
     }
     //获取tower 位置数量的接口

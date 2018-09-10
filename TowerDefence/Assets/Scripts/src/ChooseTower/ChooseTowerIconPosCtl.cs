@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ChooseTowerIconPosCtl : MonoBehaviour {
 
     public GameObject towerIconPosPrefab;
+    public GameObject alertPrefab;
 
     //public GameObject towerPosBg;
     // Use this for initialization
@@ -92,5 +93,31 @@ public class ChooseTowerIconPosCtl : MonoBehaviour {
     }
     public List<GameObject> GetCurrentTowerIconsList(){
         return towerIconsList;
+    }
+    public bool IsCanStartGame(){
+        if (towerIconsList.Count == 0){
+            return false;
+        }
+        return true;
+    }
+    public void OnButtonClick(string value){
+        switch(value){
+            case "update-count":
+                //点击扩展的时候，弹出一个弹窗，问一下玩家是否
+                //打开弹窗
+
+                GameObject alert = Instantiate(alertPrefab);
+                alert.transform.parent = Global.GetInstance().GetCanvas().transform;
+                alert.transform.GetComponent<RectTransform>().localPosition = Vector3.zero;
+                ButtonCallBack cb = new ButtonCallBack(AlertCB);
+                alert.transform.GetComponent<Alert>().SetCallBack(cb);
+                break;
+            default:
+                break;
+        }
+    }
+    public void AlertCB(string value){
+        Debug.Log("alert  cb  = " + value); 
+
     }
 }

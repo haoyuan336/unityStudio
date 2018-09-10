@@ -33,6 +33,7 @@ public class GameTool
                 XmlNode textNode = xm.SelectSingleNode("text");
                 XmlNodeList waveNodes = xm.SelectNodes("wave");
                 Debug.Log("text =" + textNode.InnerText);
+                XmlNode levelTips = xm.SelectSingleNode("LevelTips");
                 List<Wave> waveList = new List<Wave>();
                 foreach (XmlElement waveXm in waveNodes)
                 {
@@ -44,6 +45,7 @@ public class GameTool
                     waveList.Add(wave);
                 }
                 Level level = new Level(waveList, textNode.InnerText);
+                level.SetLevelTips(levelTips.InnerText);
                 levelList.Add(level);
             }
         }

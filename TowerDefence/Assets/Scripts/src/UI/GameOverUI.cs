@@ -18,7 +18,8 @@ public class GameOverUI : MonoBehaviour {
             case "home":
                 Global.GetInstance().EnterHome();
                 break;
-            case "reaty":
+            case "retry":
+                Global.GetInstance().EnterChooseTowerScene(Global.GetInstance().GetLevelNum());
                 break;
             default:
                 break;

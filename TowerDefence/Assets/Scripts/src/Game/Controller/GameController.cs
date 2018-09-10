@@ -15,10 +15,10 @@ public class GameController : MonoBehaviour
     // Use this for initialization
     //public GameObject levelLabel;
     public List<GameObject> mapPrefabs;
+    public List<GameObject> towerPrefabList;
     private GameObject map;
     public Canvas canvas;
-
-
+    
     private void Awake()
     {
 
@@ -38,6 +38,7 @@ public class GameController : MonoBehaviour
     }
     void Start()
     {
+        Global.GetInstance().SetGameController(this);
         mainCamera.transform.LookAt(plane.transform.position);
     }
 
@@ -82,5 +83,8 @@ public class GameController : MonoBehaviour
         }
         gameState = state;
 
+    }
+    public GameObject GetTowerPrefab(int type){
+        return towerPrefabList[type]; 
     }
 }

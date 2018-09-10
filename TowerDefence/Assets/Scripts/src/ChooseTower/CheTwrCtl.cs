@@ -5,11 +5,11 @@ using UnityEngine;
 public class CheTwrCtl : MonoBehaviour {
     public GameObject towerIconPrefab;
     public GameObject allTowerSVContent;
-    public GameObject chooseTowerInfoPrefab;
-
+    //public GameObject canvas;
     // Use this for initialization
     private List<GameObject> towerIconList = new List<GameObject>();
 	void Start () {
+        Global.GetInstance().SetCanvas(transform.GetComponent<Canvas>());
         //进入游戏的时候 ，创建几个towericon
         List<TowerData> towerDatas = Global.GetInstance().GetGameTool().GetTowerDatas();
         //根据TowerData的数据初始化tower
@@ -43,8 +43,13 @@ public class CheTwrCtl : MonoBehaviour {
             case "start":
                 //开始游戏
                 //
-                Global.GetInstance().SetCurrentTowerDatas(Global.GetInstance().GetChooseTowerIconPosCtl().GetCurrentTowerIconsList());
-                Global.GetInstance().EnterGame(Global.GetInstance().GetLevelNum());
+                if (Global.GetInstance().GetChooseTowerIconPosCtl().IsCanStartGame()){
+                    Global.GetInstance().SetCurrentTowerDatas(Global.GetInstance().GetChooseTowerIconPosCtl().GetCurrentTowerIconsList());
+                    Global.GetInstance().EnterGame(Global.GetInstance().GetLevelNum());
+                }else{
+                    Global.GetInstance().GetChooseTowerTopBar().SetGameTips("请选择至少一个塔!");
+                }
+              
                 break;
             default:
                 break;

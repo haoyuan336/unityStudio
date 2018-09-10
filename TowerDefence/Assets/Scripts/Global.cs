@@ -22,9 +22,13 @@ public class Global
     //public Level currentLevel;
     private ChooseTowerInfo chooseTowerInfo;
     private ChooseTowerIconPosCtl chooseTowerIconPosCtl;  //塔的位置的管理
+    private ChooseTowerTopBar chooseTowerTopBar;
+    //
 
     private GameLocalData gameLocalData; //游戏的本地储存
     private List<TowerData> currentTowerDatas = new List<TowerData>();
+
+ 
     public static Global GetInstance()
     {
         if (global == null)
@@ -54,11 +58,11 @@ public class Global
         return currentLevelNum;
     }
 
-    public void SetController(GameController ctl)
+    public void SetGameController(GameController ctl)
     {
         gameController = ctl;
     }
-    public GameController GetController()
+    public GameController GetGameController()
     {
         return gameController;
     }
@@ -185,11 +189,18 @@ public class Global
         return chooseTowerIconPosCtl;
     }
     public void SetCurrentTowerDatas(List<GameObject> values){
+        currentTowerDatas = new List<TowerData>();
         for (int i = 0; i < values.Count; i ++){
             currentTowerDatas.Add(values[i].transform.GetComponent<TowerIconPos>().GetTowerData());
         }
     }
     public List<TowerData> GetCurrentTowerDatas(){
         return currentTowerDatas;
+    }
+    public void SetChooseTowerTopBar(ChooseTowerTopBar ctl){
+        chooseTowerTopBar = ctl;
+    }
+    public ChooseTowerTopBar GetChooseTowerTopBar(){
+        return chooseTowerTopBar;
     }
 }

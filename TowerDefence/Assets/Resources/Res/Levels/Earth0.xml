@@ -3,6 +3,7 @@
     <EarthName>勇者星球</EarthName>
     <level id="0" name="level">
         <text>有种你别走!</text>
+        <LevelTips>这关比较难哦！</LevelTips>
         <wave id="0">
             <type>0</type>
             <count>5</count>
@@ -14,6 +15,7 @@
       
     </level>
     <level id="1" name="level">
+        <LevelTips>这关比较难哦！</LevelTips>
         <text>有种你别走!</text>
         <wave id="0">
             <type>1</type>

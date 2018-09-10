@@ -7,7 +7,7 @@ public class TowerController : MonoBehaviour {
     // Use this for initialization
     public GameObject towerBasePosNodes;
     public GameObject towerBasePrefab;
-    public List<GameObject> towerPrefabs;
+    //public List<GameObject> towerPrefabs;
     private GameObject rayHitObj;
     int targetMask;
     private List<GameObject> towerBaseList = new List<GameObject>();
@@ -75,7 +75,7 @@ public class TowerController : MonoBehaviour {
     }
     public void BuildOneTower(int towerId, Transform tb){
         int towerType = towerId;
-        GameObject tower = Instantiate(this.towerPrefabs[towerType]);
+        GameObject tower = Instantiate(Global.GetInstance().GetGameController().GetTowerPrefab(towerType));
         tower.transform.parent = transform;
         tower.transform.position =   tb.position + Vector3.up * 0.5f;
         tower.transform.GetComponent<Tower>().SetController(transform);

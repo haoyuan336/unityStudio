@@ -405,6 +405,11 @@ MonoBehaviour:
   mapPrefabs:
   - {fileID: 1669223344679714, guid: 54649be23b0da47c79a43ff259d62295, type: 2}
   - {fileID: 1669223344679714, guid: 0b55ddb7b18d147ae80b6f1f66e55ce8, type: 2}
+  towerPrefabList:
+  - {fileID: 1986494990619452, guid: a38054f11d4fd484f838b56faadc51fa, type: 2}
+  - {fileID: 1966502556083076, guid: 4aae3ae6494ce4afe845a178262f67e4, type: 2}
+  - {fileID: 1986494990619452, guid: 00195ed679d424411803569afb4d5d9e, type: 2}
+  - {fileID: 1966502556083076, guid: f492109f3c4e940a2a3ef8c8f1331b2d, type: 2}
   canvas: {fileID: 2067830306}
 --- !u!1 &1774691278
 GameObject:

@@ -14,6 +14,7 @@ public class Level
     public static int currentLevel;
     public List<Wave> waveList;
     public string levelText;
+    public string levelTips;
     public Level(List<Wave> list, string text)
     {
         waveList = list;
@@ -26,6 +27,9 @@ public class Level
     public int GetWaveCount()
     {
         return waveList.Count;
+    }
+    public void SetLevelTips(string value){
+        levelTips = value;
     }
 
 }
