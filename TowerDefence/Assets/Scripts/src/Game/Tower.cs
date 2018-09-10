@@ -26,6 +26,8 @@ public class Tower : MonoBehaviour
     private Color currentColor;
 
     private GameObject levelLabel;
+
+    //当前tower的等级
     private int currentLevel;
     private TowerData towerData;
 
@@ -52,7 +54,7 @@ public class Tower : MonoBehaviour
         //Debug.DrawLine(Vector3.zero, new Vector3(100, 100, 100), Color.red);
         currentLevel = 0;
         towerData = Global.GetInstance().GetTowerData(towerType);
-        levelLabel.transform.GetComponent<Text>().text = towerData.towerName[currentLevel] + ":" + (currentLevel + 1).ToString();
+        levelLabel.transform.GetComponent<Text>().text = towerData.GetTowerName(currentLevel) + ":" + (currentLevel + 1).ToString();
 
     }
     public void SetController(Transform ctl)
@@ -82,7 +84,7 @@ public class Tower : MonoBehaviour
                 if (!obj.transform.GetComponent<Enemy>().isDead())
                 {
                     float dis = Vector3.Distance(transform.position, obj.transform.position);
-                    if (dis <= towerData.attackRangeList[currentLevel])
+                    if (dis <= towerData.GetAttackRange(currentLevel))
                     {
                         attackTarget = obj;
                     }
@@ -97,14 +99,14 @@ public class Tower : MonoBehaviour
             transform.LookAt(currentVector);
             float dis = Vector3.Distance(transform.position, attackTarget.transform.position);
 
-            if (dis > towerData.attackRangeList[currentLevel])
+            if (dis > towerData.GetAttackRange(currentLevel))
             {
                 attackTarget = null;
             }
         }
         if (attackTarget != null && !attackTarget.transform.GetComponent<Enemy>().isDead())
         {
-            if (shootNotTime > towerData.attackDuractionList[currentLevel])
+            if (shootNotTime > towerData.GetAttackSpeed(currentLevel))
             {
                 shootNotTime = 0;
                 ShootBullet();
@@ -133,7 +135,7 @@ public class Tower : MonoBehaviour
     void ShowAttackRange()
     {
         towerRange.SetActive(true);
-        float distance = towerData.attackRangeList[currentLevel];
+        float distance = towerData.GetAttackRange(currentLevel);
         towerRange.transform.localScale = new Vector3(distance * 2, transform.localScale.y, distance * 2);
     }
     void ShootBullet()
@@ -169,7 +171,7 @@ public class Tower : MonoBehaviour
     public void UpdateTower()
     {
         currentLevel += 1;
-        levelLabel.transform.GetComponent<Text>().text = towerData.towerName[currentLevel] + ':' + (currentLevel + 1).ToString();
+        levelLabel.transform.GetComponent<Text>().text = towerData.GetTowerName(currentLevel) + ':' + (currentLevel + 1).ToString();
         HideTowerRange();
     }
     public void HideTowerRange()

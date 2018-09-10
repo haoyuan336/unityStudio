@@ -1,16 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <content>
     <Tower id="0">
         <Type>0</Type>
+<!--        当前的等级-->
+        <CurrentLevel>0</CurrentLevel>
         <TowerName>小钢炮</TowerName>
         <TowerName>中钢炮</TowerName>
         <TowerName>大钢炮</TowerName>
         <TowerName>无敌超级钢炮</TowerName>
         
-        <UpdateCast id="0">50</UpdateCast>
-        <UpdateCast id="0">100</UpdateCast>
-        <UpdateCast id="0">170</UpdateCast>
-        <UpdateCast id="0">300</UpdateCast>
+        <UpdateCost id="0">50</UpdateCost>
+        <UpdateCost id="0">100</UpdateCost>
+        <UpdateCost id="0">170</UpdateCost>
+        <UpdateCost id="0">300</UpdateCost>
         
         <SellGold>30</SellGold>
         <SellGold>70</SellGold>
@@ -39,15 +41,16 @@
     </Tower>
      <Tower id="1">
         <Type>1</Type>
+        <CurrentLevel>0</CurrentLevel>
         <TowerName>小板砖</TowerName>
         <TowerName>中板砖</TowerName>
         <TowerName>大板砖</TowerName>
         <TowerName>无敌超级板砖</TowerName>
         
-        <UpdateCast id="0">80</UpdateCast>
-        <UpdateCast id="0">160</UpdateCast>
-        <UpdateCast id="0">260</UpdateCast>
-        <UpdateCast id="0">500</UpdateCast>
+        <UpdateCost id="0">80</UpdateCost>
+        <UpdateCost id="0">160</UpdateCost>
+        <UpdateCost id="0">260</UpdateCost>
+        <UpdateCost id="0">500</UpdateCost>
         
         
         <SellGold>50</SellGold>
@@ -74,15 +77,16 @@
     </Tower>
      <Tower id="2">
         <Type>2</Type>
+        <CurrentLevel>0</CurrentLevel>
         <TowerName>加农炮</TowerName>
         <TowerName>中型加农炮</TowerName>
         <TowerName>大型加农炮</TowerName>
         <TowerName>无敌超级加农炮</TowerName>
         
-        <UpdateCast id="0">160</UpdateCast>
-        <UpdateCast id="0">260</UpdateCast>
-        <UpdateCast id="0">420</UpdateCast>
-        <UpdateCast id="0">600</UpdateCast>
+        <UpdateCost id="0">160</UpdateCost>
+        <UpdateCost id="0">260</UpdateCost>
+        <UpdateCost id="0">420</UpdateCost>
+        <UpdateCost id="0">600</UpdateCost>
         
         
         <SellGold>100</SellGold>
@@ -110,15 +114,16 @@
     
     <Tower id="3">
         <Type>3</Type>
+        <CurrentLevel>0</CurrentLevel>
         <TowerName>投石器</TowerName>
         <TowerName>中投石器</TowerName>
         <TowerName>大型投石器</TowerName>
         <TowerName>无敌超级投石器</TowerName>
         
-        <UpdateCast id="0">180</UpdateCast>
-        <UpdateCast id="0">280</UpdateCast>
-        <UpdateCast id="0">440</UpdateCast>
-        <UpdateCast id="0">620</UpdateCast>
+        <UpdateCost id="0">180</UpdateCost>
+        <UpdateCost id="0">280</UpdateCost>
+        <UpdateCost id="0">440</UpdateCost>
+        <UpdateCost id="0">620</UpdateCost>
         
         
         <SellGold>120</SellGold>

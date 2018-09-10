@@ -6,15 +6,24 @@ public class TowerData
 {
 
     public int type;
-    public List<string> towerName;
-    public List<float> updateCastList;
-    public List<float> attackRangeList;
-    public List<float> attackDamageList;
-    public List<float> attackDuractionList;
-    public List<float> sellGoldList;
+
+
     public string specialSkill;
+
+    //当前tower 的储存在本地的等级,从本地取出来的。
+
+    private int currentTowerLevel;
+
+
+    private List<float> sellGoldList;
+    private List<string> towerName;
+    private List<float> updateCostList;
+    private List<float> attackRangeList;
+    private List<float> attackDamageList;
+    private List<float> attackDuractionList;
     public TowerData(int tp){
         type = tp;
+        //取出当前tower等级
     }
   
     public void SetTowerData(string type, List<string> valueList)
@@ -24,10 +33,13 @@ public class TowerData
             case "TowerName":
                 towerName = valueList;
                 break;
-            case "UpdateCast":
-                updateCastList = new List<float>();
+            case "UpdateCost":
+
+                Debug.Log("update cost = " + valueList);
+                updateCostList = new List<float>();
                 foreach(string v in valueList){
-                    updateCastList.Add(float.Parse(v));
+                    Debug.Log("v = " + v);
+                    updateCostList.Add(float.Parse(v));
                 }
                 break;
             case "AttackRange":
@@ -64,22 +76,40 @@ public class TowerData
     public void SetSpecialSkillName(string str){
         specialSkill = str;
     }
-    public string GetTowerName(){
-        return towerName[0]; 
+    public string GetTowerName(int value){
+        return towerName[value]; 
     }
-    public float GetBuildCast(){
-        return updateCastList[0]; 
+    public float GetBuildCost(){
+        return updateCostList[0]; 
     }
-    public float GetDamage(){
-        return attackDamageList[0];
+    public float GetUpdateCost(int value){
+        return updateCostList[value];
     }
-    public float GetAttackSpeed(){
-        return attackDuractionList[0];
+    public float GetDamage(int value){
+        //在取到tower 的伤害值的时候 ，要将他的增益效果也一同返回哦 穿进去的值就是新的值
+        return attackDamageList[value] * Global.GetInstance().GetLocalData().GetPreTowerLevelPlus(currentTowerLevel);
     }
-    public float GetAttackRangeList(){
-        return attackRangeList[0];
+    public float GetAttackSpeed(int value){
+        return attackDuractionList[value];
     }
+    public float GetAttackRange(int value){
+        return attackRangeList[value];
+    }
+
     public int GetTowerType(){
         return type;
+    }
+    public int GetUpdateCount(){
+        return updateCostList.Count;
+    }
+    public float GetSellTowerCount(int value){
+        return sellGoldList[value];
+    }
+    public void SetCurrentTowerLevel(int value){
+        //设置当前tower  的等级  跟游戏中tower 的等级有一定的区别
+        currentTowerLevel = value;
+    }
+    public int GetCurrentTowerLevel(){
+        return currentTowerLevel;
     }
 }

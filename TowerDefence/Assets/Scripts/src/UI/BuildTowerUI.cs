@@ -10,13 +10,13 @@ public class BuildTowerUI : MonoBehaviour {
     private Transform controller;
     private Transform towerBase;
 	void Start () {
-        //towerCastList = Global.GetInstance().GetTowerData()
+        //towerCostList = Global.GetInstance().GetTowerData()
 
-        //towerCastList = Global.GetInstance().GetTowerBuildCastList();
+        //towerCostList = Global.GetInstance().GetTowerBuildCostList();
 
         //for (int i = 0; i < textList.Count; i ++){
 
-        //    textList[i].transform.GetComponent<Text>().text = "Build Tower Cast:" + towerCastList[i].ToString();
+        //    textList[i].transform.GetComponent<Text>().text = "Build Tower Cost:" + towerCostList[i].ToString();
         //}
 
         //根据选择的tower 的个数来初始化，几个towericon 的位置

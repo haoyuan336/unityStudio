@@ -21,8 +21,8 @@ public class TowerIconButton : MonoBehaviour {
             case "click":
                 //点击
                 Debug.Log("click");
-                int cast = (int)towerData.GetBuildCast(); 
-                int endGold = Global.GetInstance().GetMapController().goldCount - cast;
+                int Cost = (int)towerData.GetBuildCost(); 
+                int endGold = Global.GetInstance().GetMapController().goldCount - Cost;
 
                 if (endGold < 0)
                 {
@@ -44,7 +44,7 @@ public class TowerIconButton : MonoBehaviour {
     public void SetTowerData(TowerData td, Transform tb){
         towerData = td;
         towerBase = tb;
-        textLabel.transform.GetComponent<Text>().text = "tower" +  towerData.type.ToString() + " " + towerData.GetBuildCast().ToString();
+        textLabel.transform.GetComponent<Text>().text = "tower" +  towerData.type.ToString() + " " + towerData.GetBuildCost().ToString();
     }
     public void SetController(BuildTowerUI ctl){
         controller = ctl;

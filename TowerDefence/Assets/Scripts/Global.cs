@@ -28,7 +28,8 @@ public class Global
     private GameLocalData gameLocalData; //游戏的本地储存
     private List<TowerData> currentTowerDatas = new List<TowerData>();
 
- 
+
+    private ChooseLevelTopBar chooseLevelTopBar;
     public static Global GetInstance()
     {
         if (global == null)
@@ -50,7 +51,8 @@ public class Global
         tool.ReadTowerInfo(Consts.LevelDir + "Tower.xml");
         gameLocalData = new GameLocalData(); //游戏进入的时候，实例化一个游戏本地储存的数据
     }
-    public GameLocalData GetLocalData(){
+    public GameLocalData GetLocalData()
+    {
         return gameLocalData;
     }
     public int GetLevelNum()
@@ -103,44 +105,56 @@ public class Global
         return count;
         //return mapController.goldCount;
     }
-    public void SetTopBar(TopBar tb){
+    public void SetTopBar(TopBar tb)
+    {
         topBar = tb;
     }
-    public TopBar GetTopBar(){
+    public TopBar GetTopBar()
+    {
         return topBar;
     }
-    public Level GetCurrentLevel(){
+    public Level GetCurrentLevel()
+    {
         //return currentLevel;
         return tool.GetLevelList()[currentLevelNum];
     }
-    public string GetEarthName(){
+    public string GetEarthName()
+    {
         return tool.earthName;
     }
-    public TowerData GetTowerData(int index){
+    public TowerData GetTowerData(int index)
+    {
         return tool.towerDataList[index];
     }
-    public List<float> GetTowerBuildCastList(){
-        //返回的是  每一种塔的 建造费用 的 列表
-        List<float> buildCast = new List<float>();
-        List<TowerData> twd = tool.GetTowerDatas();
-        foreach (TowerData td in twd){
-            buildCast.Add(td.updateCastList[0]);
-        }
-        return buildCast;
-    }
-    public void SetMapController(MapController ctl){
+    //public List<float> GetTowerBuildCostList()
+    //{
+    //    //返回的是  每一种塔的 建造费用 的 列表
+    //    List<float> buildCost = new List<float>();
+    //    List<TowerData> twd = tool.GetTowerDatas();
+    //    foreach (TowerData td in twd)
+    //    {
+    //        buildCost.Add(td.GetUpdateCost[0]);
+    //    }
+    //    return buildCost;
+    //}
+    public void SetMapController(MapController ctl)
+    {
         mapController = ctl;
     }
-    public MapController GetMapController(){
+    public MapController GetMapController()
+    {
         return mapController;
     }
-    public void SetEnemyController(EnemyController ctl){
+    public void SetEnemyController(EnemyController ctl)
+    {
         enemyController = ctl;
     }
-    public EnemyController GetEnemyController(){
-        return enemyController;   
+    public EnemyController GetEnemyController()
+    {
+        return enemyController;
     }
-    public void SetGameOver(bool value){
+    public void SetGameOver(bool value)
+    {
         //游戏结束 告诉主要的控制器，游戏结束了
         //首先告诉敌人控制器，游戏结束不要在出敌人了
         enemyController.SetGameOver(value);
@@ -148,59 +162,82 @@ public class Global
         mapController.SetGameOver(value);
 
     }
-    public void EnterChooseTowerScene(int level){
+    public void EnterChooseTowerScene(int level)
+    {
         currentLevelNum = level;
         SceneManager.LoadScene("ChooseTower");
     }
-    public void EnterHome(){
+    public void EnterHome()
+    {
         //进入选择关卡的页面
         SceneManager.LoadScene("ChooseLevelScene");
 
     }
-    public void EnterGame(int level){
-        currentLevelNum= level;
+    public void EnterGame(int level)
+    {
+        currentLevelNum = level;
         Debug.Log("current Level num = " + level);
         SceneManager.LoadScene("GameScene");
     }
-    public void EnterNextGame(){
+    public void EnterNextGame()
+    {
         currentLevelNum += 1;
         SceneManager.LoadScene("GameScene");
 
     }
-    public GameTool GetGameTool(){
+    public GameTool GetGameTool()
+    {
         return tool;
     }
-    public void SetChooseTowerCtl(CheTwrCtl ctl){
+    public void SetChooseTowerCtl(CheTwrCtl ctl)
+    {
         chooseTowerCtl = ctl;
     }
-    public CheTwrCtl GetChooseTowerCtl(){
+    public CheTwrCtl GetChooseTowerCtl()
+    {
         return chooseTowerCtl;
     }
-    public void SetChooseTowerInfo(ChooseTowerInfo ctinfo){
+    public void SetChooseTowerInfo(ChooseTowerInfo ctinfo)
+    {
         chooseTowerInfo = ctinfo;
     }
-    public ChooseTowerInfo GetChooseTowerInfo(){
+    public ChooseTowerInfo GetChooseTowerInfo()
+    {
         return chooseTowerInfo;
     }
-    public void SetChooseTowerIconPosCtl(ChooseTowerIconPosCtl ctl){
+    public void SetChooseTowerIconPosCtl(ChooseTowerIconPosCtl ctl)
+    {
         chooseTowerIconPosCtl = ctl;
     }
-    public ChooseTowerIconPosCtl GetChooseTowerIconPosCtl(){
+    public ChooseTowerIconPosCtl GetChooseTowerIconPosCtl()
+    {
         return chooseTowerIconPosCtl;
     }
-    public void SetCurrentTowerDatas(List<GameObject> values){
+    public void SetCurrentTowerDatas(List<GameObject> values)
+    {
         currentTowerDatas = new List<TowerData>();
-        for (int i = 0; i < values.Count; i ++){
+        for (int i = 0; i < values.Count; i++)
+        {
             currentTowerDatas.Add(values[i].transform.GetComponent<TowerIconPos>().GetTowerData());
         }
     }
-    public List<TowerData> GetCurrentTowerDatas(){
+    public List<TowerData> GetCurrentTowerDatas()
+    {
         return currentTowerDatas;
     }
-    public void SetChooseTowerTopBar(ChooseTowerTopBar ctl){
+    public void SetChooseTowerTopBar(ChooseTowerTopBar ctl)
+    {
         chooseTowerTopBar = ctl;
     }
-    public ChooseTowerTopBar GetChooseTowerTopBar(){
+    public ChooseTowerTopBar GetChooseTowerTopBar()
+    {
         return chooseTowerTopBar;
+    }
+    public void SetChooseLevelTopBar(ChooseLevelTopBar ctl)
+    {
+        chooseLevelTopBar = ctl;
+    }
+    public ChooseLevelTopBar GetChooseLevelTopBar(){
+        return chooseLevelTopBar;
     }
 }

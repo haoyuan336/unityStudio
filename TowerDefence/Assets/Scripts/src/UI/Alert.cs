@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public delegate void ButtonCallBack(string value);
 public class Alert : MonoBehaviour {
     // Use this for initialization
     ButtonCallBack callBack;
+    public GameObject tipsLabel;
 	void Start () {
 		
 	}
@@ -31,7 +33,8 @@ public class Alert : MonoBehaviour {
                 break;
         }
     }
-    public void SetCallBack(ButtonCallBack cb){
+    public void SetCallBack(ButtonCallBack cb, string tips){
         callBack = cb;
+        tipsLabel.transform.GetComponent<Text>().text = tips;
     }
 }

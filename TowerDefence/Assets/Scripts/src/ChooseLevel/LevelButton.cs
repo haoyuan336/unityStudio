@@ -23,7 +23,7 @@ public class LevelButton : MonoBehaviour {
             Vector3 pos = Camera.main.WorldToScreenPoint(levelTextPos.transform.position);
             levelLabel.transform.position = pos;
             if (levelTextPos.transform.position.z < 1){
-                levelLabel.GetComponent<Text>().text = index.ToString();
+                levelLabel.GetComponent<Text>().text = (index + 1).ToString();
                 isOnShow = true;
             }
             else{
@@ -54,6 +54,7 @@ public class LevelButton : MonoBehaviour {
     {
         transform.GetComponent<Renderer>().material.color = Color.green;
         isOvering = true;
+        Global.GetInstance().GetChooseLevelTopBar().SetLevelNum(index);
     }
     public void OutMouse(){
         transform.GetComponent<Renderer>().material.color = currentColor;

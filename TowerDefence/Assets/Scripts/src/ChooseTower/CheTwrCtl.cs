@@ -5,6 +5,7 @@ using UnityEngine;
 public class CheTwrCtl : MonoBehaviour {
     public GameObject towerIconPrefab;
     public GameObject allTowerSVContent;
+    public GameObject alertPrefab;
     //public GameObject canvas;
     // Use this for initialization
     private List<GameObject> towerIconList = new List<GameObject>();
@@ -55,5 +56,12 @@ public class CheTwrCtl : MonoBehaviour {
                 break;
         }
     }
+    public void ShowAlert(ButtonCallBack cb, string value){
+        //显示提示功能
+        GameObject alert = Instantiate(alertPrefab);
+        alert.transform.parent = transform;
+        alert.GetComponent<RectTransform>().localPosition = Vector3.zero;
+        alert.GetComponent<Alert>().SetCallBack(cb ,value);
 
+    }
 }

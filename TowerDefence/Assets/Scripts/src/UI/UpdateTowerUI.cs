@@ -30,10 +30,10 @@ public class UpdateTowerUI : MonoBehaviour
 
                 {
                     //int endGold = Global.GetInstance().GetCurrentLevel().currentGold - 
-                    if (currentTowerLevel >= (towerData.updateCastList.Count - 1)){
+                    if (currentTowerLevel >= (towerData.GetUpdateCount() - 1)){
                         Debug.Log("满级。不可以在升级");
                     }else{
-                        int endGold = Global.GetInstance().GetMapController().goldCount - (int)towerData.updateCastList[currentTowerLevel + 1];
+                        int endGold = Global.GetInstance().GetMapController().goldCount - (int)towerData.GetUpdateCost(currentTowerLevel + 1);
                         if (endGold >= 0){
                             //金币够 可以升级
                             Global.GetInstance().GetMapController().SetCurrentGold(endGold);
@@ -51,7 +51,7 @@ public class UpdateTowerUI : MonoBehaviour
                 Global.GetInstance().GetTowerController().SellTower(tower);
                 Destroy(gameObject);
                 {
-                    int endGold = Global.GetInstance().GetMapController().goldCount + (int)towerData.sellGoldList[currentTowerLevel];
+                    int endGold = Global.GetInstance().GetMapController().goldCount + (int)towerData.GetSellTowerCount(currentTowerLevel);
                     Global.GetInstance().GetMapController().SetCurrentGold(endGold);
 
                 }
@@ -79,16 +79,16 @@ public class UpdateTowerUI : MonoBehaviour
         //取到升级需要的金币个数 ，卖出得到的金币个数
         //首先第一个Text 代表的是升级需要的金币个数
 
-        if (currentTowerLevel == (towerData.updateCastList.Count - 1)){
+        if (currentTowerLevel == (towerData.GetUpdateCount() - 1)){
             textList[0].transform.GetComponent<Text>().text = "Tower already Max";
         }
         else
         {
-            textList[0].transform.GetComponent<Text>().text = "Update cast Gold: " + towerData.updateCastList[(currentTowerLevel + 1)].ToString();
+            textList[0].transform.GetComponent<Text>().text = "Update Cost Gold: " + towerData.GetUpdateCost(currentTowerLevel + 1).ToString();
 
         }
 
 
-        textList[1].transform.GetComponent<Text>().text = "Sell will get Gold: " + towerData.sellGoldList[currentTowerLevel].ToString();
+        textList[1].transform.GetComponent<Text>().text = "Sell will get Gold: " + towerData.GetSellTowerCount(currentTowerLevel).ToString();
     }
 }

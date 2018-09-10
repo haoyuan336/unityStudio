@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224288822998582570}
   - component: {fileID: 222497769280474166}
   - component: {fileID: 114100307250910576}
-  - component: {fileID: 114387030832231276}
+  - component: {fileID: 114965276309199602}
   m_Layer: 5
   m_Name: ChooseLevelTopBar
   m_TagString: Untagged
@@ -173,22 +173,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8BF7\u9009\u62E9\u81F3\u5C11\u4E00\u4E2A\u5854"
---- !u!114 &114387030832231276
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1229256695757404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37916da87a3854e178cf095b172e09cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  earthNameLabel: {fileID: 1664166763444274}
-  levelNumLabel: {fileID: 1164845663164368}
-  levelTipsLabel: {fileID: 1741690761063924}
-  gameTipsLabel: {fileID: 1654387931888780}
+  m_Text: 
 --- !u!114 &114454069858262230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -321,6 +306,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Earth:'
+--- !u!114 &114965276309199602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229256695757404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe1abaf370004f0fb673ea0a5cd2c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  earthNameLabel: {fileID: 1664166763444274}
+  levelNumLabel: {fileID: 1164845663164368}
+  diamondCountLabel: {fileID: 1987752482915212}
 --- !u!222 &222087442302844738
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -455,8 +454,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 546, y: 0}
-  m_SizeDelta: {x: 339.1, y: 50}
+  m_AnchoredPosition: {x: 416, y: 0}
+  m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224864740015606950
 RectTransform:

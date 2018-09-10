@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.IO;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using System.Xml;
 
 public class GameTool
@@ -100,7 +98,7 @@ public class GameTool
     {
         string[] nameList = new string[6];
         nameList[0] = "TowerName";
-        nameList[1] = "UpdateCast";
+        nameList[1] = "UpdateCost";
         nameList[2] = "AttackRange";
         nameList[3] = "AttackDamage";
         nameList[4] = "AttackDuraction";
@@ -116,6 +114,8 @@ public class GameTool
             {
                 XmlNode tyXml = towerXml.SelectSingleNode("Type");
                 TowerData td = new TowerData(int.Parse(tyXml.InnerText));
+
+                td.SetCurrentTowerLevel(int.Parse(towerXml.SelectSingleNode("CurrentLevel").InnerText));
                 td.SetSpecialSkillName(towerXml.SelectSingleNode("SpecialSkillName").InnerText);
                 //XmlNodeList nodeList = towerXml.SelectNodes("TowerName");
                 //Debug.Log("Node List = " + nodeList.Count);
