@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     private EnemyState enemyState = EnemyState.Invalide;
     private GameObject healthBar;
     private UIController uIController;
-    private  int healthCount;
+    private  float healthCount;
     private readonly int bigSize = 2;
     private float targetSize = 1;
     private void Awake()
@@ -158,20 +158,19 @@ public class Enemy : MonoBehaviour
         enemyController = ctl.GetComponent<EnemyController>();
     }
     /// <param name="obj">被攻击的对象</param>
-    public void beAttach(int damage){
+    public void beAttach(float damage){
         //int damageCount = obj.transform.GetComponent<Bullet>().damageCount;
         //int endCount =
         Debug.Log("attack  =  " + damage);
-        int endCount = healthCount - damage;
-        if (endCount <= 0){
-            healthCount = 0;
-
-        }else{
-            healthCount = endCount;
-        }
-        if (healthCount == 0){
+        float endCount = healthCount - damage;
+        Debug.Log("end count = " + endCount);
+        if(endCount <= 0){
+            endCount = 0.0f;
             SetState(EnemyState.Dead);
+
         }
+        healthCount = endCount;
+     
         healthBar.GetComponent<ProgressBar>().SetValue((float)healthCount / (float)healthTotalCount); 
     }
     public bool isDead(){

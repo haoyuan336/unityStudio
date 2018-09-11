@@ -147,6 +147,7 @@ public class Tower : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab);
         bullet.transform.parent = transform.parent;
         bullet.transform.position = bulletPos;
+        bullet.GetComponent<Bullet>().SetDamageCount(towerData.GetDamage(currentLevel));
         bullet.GetComponent<Bullet>().SetShootTarget(attackTarget);
         //bullet.GetComponent<Bullet>().SetController(this);
     }

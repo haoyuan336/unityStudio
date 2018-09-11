@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Xml;
 public class TowerData
 {
 
@@ -79,8 +79,8 @@ public class TowerData
     public string GetTowerName(int value){
         return towerName[value]; 
     }
-    public float GetBuildCost(){
-        return updateCostList[0]; 
+    public int GetBuildCost(){
+        return (int)updateCostList[0]; 
     }
     public float GetUpdateCost(int value){
         return updateCostList[value];
@@ -89,13 +89,26 @@ public class TowerData
         //在取到tower 的伤害值的时候 ，要将他的增益效果也一同返回哦 穿进去的值就是新的值
         return attackDamageList[value] * Global.GetInstance().GetLocalData().GetPreTowerLevelPlus(currentTowerLevel);
     }
+    public float GetNextLevelDamage(int value){
+
+       
+
+        return attackDamageList[value] * Global.GetInstance().GetLocalData().GetPreTowerLevelPlus(currentTowerLevel + 1);
+
+    }
     public float GetAttackSpeed(int value){
-        return attackDuractionList[value];
+        return attackDuractionList[value] * Global.GetInstance().GetLocalData().GetPreTowerLevelPlus(currentTowerLevel);
+    }
+    public float GetNextAttackSpeed(int value){
+        return attackDuractionList[value] * Global.GetInstance().GetLocalData().GetPreTowerLevelPlus(currentTowerLevel + 1);
     }
     public float GetAttackRange(int value){
-        return attackRangeList[value];
+        return attackRangeList[value] * Global.GetInstance().GetLocalData().GetPreTowerLevelPlus(currentTowerLevel);
     }
+    public float GetNextAttackRange(int value){
+        return attackRangeList[value] * Global.GetInstance().GetLocalData().GetPreTowerLevelPlus(currentTowerLevel + 1);
 
+    }
     public int GetTowerType(){
         return type;
     }
@@ -111,5 +124,16 @@ public class TowerData
     }
     public int GetCurrentTowerLevel(){
         return currentTowerLevel;
+    }
+    public void UpdateLevel(){
+        //升级当前的tower 的等级，todo注意是tower的类型的等级，不是游戏中的 某个tower的 等级 虽然都是等级，但是还是有区别的
+        currentTowerLevel++;
+        XmlDocument xmlDoc = new XmlDocument();
+        string path = Consts.LevelDir + "Tower.xml";
+        xmlDoc.Load(path);
+        XmlNode rootNode = xmlDoc.SelectSingleNode("content");
+        XmlNode towerNode = rootNode.SelectNodes("Tower")[type]; //取出自己相对应的tower的数据
+        towerNode.SelectSingleNode("CurrentLevel").InnerText = currentTowerLevel.ToString();
+        xmlDoc.Save(path);
     }
 }

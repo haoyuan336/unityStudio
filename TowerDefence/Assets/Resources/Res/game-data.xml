@@ -1,6 +1,6 @@
 <content>
   <ChooseTowerCount>7</ChooseTowerCount>
-  <DiamondCount>953</DiamondCount>
+  <DiamondCount>12</DiamondCount>
   <!--  升级塔的位置需要的钻石个数  -->
   <UpdateTowerPosCountCostDiamond>
     <Pos>0</Pos>

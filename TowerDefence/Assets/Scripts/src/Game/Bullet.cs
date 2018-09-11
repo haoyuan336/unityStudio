@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     private float targetScele;
     private float currentScale;
     private Vector3 director;
-    public int damageCount;
+    public float damageCount;
     public enum BulletState
     {
         Invalide, Wait, Run, Bomb, End
@@ -95,5 +95,8 @@ public class Bullet : MonoBehaviour
             bulletState = state;
         }
 
+    }
+    public void SetDamageCount(float value){
+        damageCount = value;
     }
 }
