@@ -71,7 +71,16 @@ public class ChooseTowerInfo : MonoBehaviour {
             case "ok":
                 //点击了升级的按钮，  那么就开始处理升级的相关的操作 ，首先钻石的个数减一下 
                 //int Cost = 
+                //升级当前所需要的钻石个数是 
+                int cost = Global.GetInstance().GetLocalData().GetUpdateTowerLevelCost(towerData.GetCurrentTowerLevel() + 1);
+                //然后本地储存减去这些钻石个数
+                Global.GetInstance().GetLocalData().CostDiamond(cost);
+                //减了这些钻石之后,显示钻石个数的地方将钻石的个数显示成最新的钻石个数
+                Global.GetInstance().GetChooseTowerTopBar().SetDiamondLabelCount(Global.GetInstance().GetLocalData().GetDiamondCount());
 
+                //然后让towerData去升级
+                //towerData
+                towerData.UpdateLevel();
 
 
                 break;

@@ -1,6 +1,6 @@
-﻿<content>
+<content>
   <ChooseTowerCount>7</ChooseTowerCount>
-  <DiamondCount>955</DiamondCount>
+  <DiamondCount>953</DiamondCount>
   <!--  升级塔的位置需要的钻石个数  -->
   <UpdateTowerPosCountCostDiamond>
     <Pos>0</Pos>
@@ -11,33 +11,30 @@
     <Pos>10</Pos>
     <Pos>30</Pos>
   </UpdateTowerPosCountCostDiamond>
-<!--   每次升级tower 的时候 的花费 -->
+  <!--   每次升级tower 的时候 的花费 -->
   <UpdateTowerPreLevel>
-        <Level>0</Level>
-        <Level>1</Level>
-        <Level>4</Level>
-        <Level>10</Level>
-        <Level>20</Level>
-        <Level>40</Level>
-        <Level>100</Level>
-        <Level>200</Level>
-        <Level>500</Level>
-        <Level>1000</Level>
-        
-    </UpdateTowerPreLevel>
-<!--tower没级的数据增益效果值    -->
-    <TowerPreLevelPlus>
-        <Level>1</Level>
-        <Level>1.1</Level>
-        <Level>1.2</Level>
-        <Level>1.3</Level>
-        <Level>1.4</Level>
-        <Level>1.5</Level>
-        <Level>1.6</Level>
-        <Level>1.7</Level>
-        <Level>1.8</Level>
-        <Level>1.9</Level>
-        
-    </TowerPreLevelPlus>
-    
+    <Level>0</Level>
+    <Level>1</Level>
+    <Level>4</Level>
+    <Level>10</Level>
+    <Level>20</Level>
+    <Level>40</Level>
+    <Level>100</Level>
+    <Level>200</Level>
+    <Level>500</Level>
+    <Level>1000</Level>
+  </UpdateTowerPreLevel>
+  <!--tower没级的数据增益效果值    -->
+  <TowerPreLevelPlus>
+    <Level>1</Level>
+    <Level>1.1</Level>
+    <Level>1.2</Level>
+    <Level>1.3</Level>
+    <Level>1.4</Level>
+    <Level>1.5</Level>
+    <Level>1.6</Level>
+    <Level>1.7</Level>
+    <Level>1.8</Level>
+    <Level>1.9</Level>
+  </TowerPreLevelPlus>
 </content>
