@@ -125,9 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6926617fb22804c95847f15ef4b04555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelTextPos: {fileID: 1791735235068576}
   levelTextPrefab: {fileID: 1298863357064102, guid: 7cd3130c876d548b6b125ad7043f2b4d,
     type: 2}
-  levelTextPos: {fileID: 1791735235068576}
 --- !u!135 &135911237844314366
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -136,7 +136,7 @@ SphereCollider:
   m_GameObject: {fileID: 1680043596349050}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 1.0000002
   m_Center: {x: 0, y: 0, z: 0}

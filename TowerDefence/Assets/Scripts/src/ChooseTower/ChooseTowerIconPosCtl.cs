@@ -53,13 +53,13 @@ public class ChooseTowerIconPosCtl : MonoBehaviour
 
         towerPosList = new List<Vector3>();
 
-        //foreach(GameObject obj in towerIconsList)
-        //{
-        //    Destroy(obj);
-        //}
-        //towerIconsList = new List<GameObject>();
+        foreach(GameObject obj in towerIconsList)
+        {
+            Destroy(obj);
+        }
+        towerIconsList = new List<GameObject>();
 
-        //numQuene = new Queue<int>();
+        numQuene = new Queue<int>();
 
         for (int i = 0; i < count; i++)
         {

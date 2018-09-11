@@ -1721,9 +1721,6 @@ MonoBehaviour:
   towerBasePosNodes: {fileID: 1689860669708380}
   towerBasePrefab: {fileID: 1560607266617928, guid: aa832702284fa4080a6c816279159fd6,
     type: 2}
-  towerPrefabs:
-  - {fileID: 1986494990619452, guid: a38054f11d4fd484f838b56faadc51fa, type: 2}
-  - {fileID: 1966502556083076, guid: 4aae3ae6494ce4afe845a178262f67e4, type: 2}
 --- !u!114 &114768532914191358
 MonoBehaviour:
   m_ObjectHideFlags: 1

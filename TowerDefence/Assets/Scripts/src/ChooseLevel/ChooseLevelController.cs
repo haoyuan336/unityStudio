@@ -13,6 +13,7 @@ public class ChooseLevelController : MonoBehaviour
     public GameObject levelButtonPrefab;
     public GameObject canvas;
     private List<GameObject> levelButtonList = new List<GameObject>();
+    private Vector3 oldHitPoint;
     void Start()
     {
         Global.GetInstance();
@@ -38,24 +39,31 @@ public class ChooseLevelController : MonoBehaviour
     {
 
 
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //RaycastHit hit;
+        //for (int i = 0; i < levelButtonList.Count; i ++){
+        //    levelButtonList[i].transform.GetComponent<LevelButton>().OutMouse();
+        //}
+        //if (Physics.Raycast(ray, out hit, 1000f, 1))
+        //{
+        //    //Debug.Log("hit tag = " + hit.transform.tag);
+        //    if (hit.transform.tag == "LevelButton")
+        //    {
+
+        //        hit.transform.GetComponent<LevelButton>().OnMouse();
+
+        //        if (isTouching){
+        //            hit.transform.GetComponent<LevelButton>().buttonDown();
+
+        //        }
+        //    }
+        //}
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        for (int i = 0; i < levelButtonList.Count; i ++){
-            levelButtonList[i].transform.GetComponent<LevelButton>().OutMouse();
-        }
+
         if (Physics.Raycast(ray, out hit, 1000f, 1))
         {
-            //Debug.Log("hit tag = " + hit.transform.tag);
-            if (hit.transform.tag == "LevelButton")
-            {
-
-                hit.transform.GetComponent<LevelButton>().OnMouse();
-
-                if (isTouching){
-                    hit.transform.GetComponent<LevelButton>().buttonDown();
-
-                }
-            }
+            //Debug.Log("hit point = " + hit.point);
         }
 
         Vector2 mousePos = Input.mousePosition;
@@ -63,6 +71,7 @@ public class ChooseLevelController : MonoBehaviour
         {
             mousePosition = mousePos;
             isTouching = true;
+            oldHitPoint = hit.point;
 
 
         }
@@ -74,10 +83,28 @@ public class ChooseLevelController : MonoBehaviour
         }
         if (isTouching == true)
         {
+            if (oldHitPoint == null){
+                oldHitPoint = hit.point;
+            }else{
+                //oldHitPoint = hit.point;
+                //如果上一帧的触摸点不是空 那么就可以取出两个向量
+                Vector3 v1 = oldHitPoint - earthObject.transform.position;
+                Vector3 v2 = hit.point - earthObject.transform.position;
+                //获取到法向量
+                Vector3 vf = Vector3.Cross(v1, v2);
+                //渠道法相量之后，
+                float angle = Vector3.Angle(v1, v2);
+                //四元数  获取以法向量的面 旋转相应的角度的 四元数
+                Quaternion quaternion = Quaternion.AngleAxis(angle, vf);
 
-            Vector2 director = mousePos - mousePosition;
-            mousePosition = mousePos;
-            earthObject.transform.Rotate(Vector3.down * director.x * Time.deltaTime * 10);
+                earthObject.transform.rotation =   quaternion * earthObject.transform.rotation;
+
+            }
+            oldHitPoint = hit.point;
+           
+            //Vector2 director = mousePos - mousePosition;
+            //mousePosition = mousePos;
+            //earthObject.transform.Rotate(Vector3.down * director.x * Time.deltaTime * 10);
         }
     }
 }

@@ -1,16 +1,11 @@
 ﻿<Properties StartupConfiguration="{28866EB0-7993-C171-348D-8535A8E3480D}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/src/Game/Tower.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/src/Game/Controller/GameController.cs">
     <Files>
-      <File FileName="Assets/Scripts/src/Game/Data/TowerData.cs" Line="85" Column="43" />
-      <File FileName="Assets/Resources/Res/Levels/test1.xml" Line="1" Column="1" />
       <File FileName="Assets/Resources/Res/Levels/Tower.xml" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/src/Game/GameTool.cs" Line="80" Column="33" />
-      <File FileName="Assets/Scripts/src/ChooseTower/ChooseTowerInfo.cs" Line="69" Column="117" />
-      <File FileName="Assets/Scripts/src/Game/Data/GameLocalData.cs" Line="121" Column="4" />
-      <File FileName="Assets/Scripts/src/Game/Bullet.cs" Line="89" Column="77" />
-      <File FileName="Assets/Scripts/src/Game/Enemy.cs" Line="165" Column="46" />
-      <File FileName="Assets/Scripts/src/Game/Tower.cs" Line="30" Column="17" />
+      <File FileName="Assets/Scripts/src/Game/Data/TowerData.cs" Line="140" Column="1" />
+      <File FileName="Assets/Scripts/src/ChooseLevel/ChooseLevelController.cs" Line="77" Column="9" />
+      <File FileName="Assets/Scripts/src/Game/Controller/GameController.cs" Line="13" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

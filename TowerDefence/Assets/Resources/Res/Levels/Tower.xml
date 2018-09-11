@@ -3,7 +3,7 @@
   <Tower id="0">
     <Type>0</Type>
     <!--        当前的等级-->
-    <CurrentLevel>8</CurrentLevel>
+    <CurrentLevel>2</CurrentLevel>
     <TowerName>小钢炮</TowerName>
     <TowerName>中钢炮</TowerName>
     <TowerName>大钢炮</TowerName>
@@ -32,7 +32,7 @@
   </Tower>
   <Tower id="1">
     <Type>1</Type>
-    <CurrentLevel>3</CurrentLevel>
+    <CurrentLevel>2</CurrentLevel>
     <TowerName>小板砖</TowerName>
     <TowerName>中板砖</TowerName>
     <TowerName>大板砖</TowerName>
@@ -61,7 +61,7 @@
   </Tower>
   <Tower id="2">
     <Type>2</Type>
-    <CurrentLevel>3</CurrentLevel>
+    <CurrentLevel>1</CurrentLevel>
     <TowerName>加农炮</TowerName>
     <TowerName>中型加农炮</TowerName>
     <TowerName>大型加农炮</TowerName>
