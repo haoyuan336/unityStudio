@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         Global.GetInstance().SetGameController(this);
-        mainCamera.transform.LookAt(plane.transform.position);
+        //mainCamera.transform.LookAt(plane.transform.position);
     }
 
     public void GameStart(string info)
