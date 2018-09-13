@@ -72,7 +72,7 @@ public class ChooseTowerIconPosCtl : MonoBehaviour
             //image.transform.GetComponent<RectTransform>().localPosition = Vector3.zero;
             Vec2 vec2 = Vec2.Up();
             Vec2 endVec2 = Vec2.Rotate(vec2, -1 * Mathf.PI * 2 / count * i);
-            endVec2 = endVec2.MultiValue(130);
+            endVec2 = Vec2.MultiValue(endVec2,130);
             //Debug.Log("end Vec2  x= " + endVec2.x + "y= " + endVec2.y);
             Vector3 endV3 = new Vector3(endVec2.x, endVec2.y, 0);
             image.transform.GetComponent<RectTransform>().localPosition = endV3;

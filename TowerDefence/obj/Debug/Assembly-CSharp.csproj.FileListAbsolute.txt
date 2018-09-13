@@ -96,7 +96,6 @@
 /Users/workspace/unityStudio/TowerDefence/Temp/bin/Debug/Boo.Lang.Compiler.dll
 /Users/workspace/unityStudio/TowerDefence/Temp/bin/Debug/Unity.UNetWeaver.dll
 /Users/workspace/unityStudio/TowerDefence/Temp/bin/Debug/Unity.IvyParser.dll
-/Users/workspace/unityStudio/TowerDefence/Temp/bin/Debug/System.Configuration.dll
 /Users/workspace/unityStudio/TowerDefence/Temp/bin/Debug/Boo.Lang.PatternMatching.dll
 /Users/workspace/unityStudio/TowerDefence/Temp/bin/Debug/Boo.Lang.Useful.dll
 /Users/workspace/unityStudio/TowerDefence/Temp/bin/Debug/Unity.CecilTools.dll
@@ -250,3 +249,4 @@
 /Users/workspace/unityStudio/TowerDefence/obj/Debug/Assembly-CSharp.csproj.CopyComplete
 /Users/workspace/unityStudio/TowerDefence/obj/Debug/Assembly-CSharp.dll
 /Users/workspace/unityStudio/TowerDefence/obj/Debug/Assembly-CSharp.pdb
+/Users/workspace/unityStudio/TowerDefence/Temp/bin/Debug/Mono.Security.dll

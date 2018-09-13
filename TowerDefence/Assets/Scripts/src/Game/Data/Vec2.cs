@@ -12,6 +12,9 @@ class Vec2
     {
         return new Vec2(0, 1);
     }
+    public static float GetDistance(Vec2 v1, Vec2 v2){
+        return Mathf.Sqrt(Mathf.Pow(v1.x - v2.x, 2) + Mathf.Pow(v1.y - v2.y, 2));
+    }
     public Vec2(float a, float b)
     {
         x = a;
@@ -20,7 +23,7 @@ class Vec2
 
     public Vec2 GetNormal()
     {
-
+         
 
         float n = x * x + y * y;
         if ((int)n == 1)
@@ -90,8 +93,8 @@ class Vec2
     {
         return new Vec2(v.x * value, v.y * value);
     }
-    public Vec2 MultiValue(float value)
+    public static  Vec2 MultiValue(Vec2 v, float value)
     {
-        return new Vec2(x * value, y * value);
+        return new Vec2(v.x * value, v.y * value);
     }
 }
