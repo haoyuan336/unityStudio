@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public List<GameObject> enemyList;
-
+    public GameObject earth;
     // Use this for initialization
     public List<GameObject> enemyPrefabs;
     public GameObject posNodes;
@@ -30,6 +30,18 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
+
+        //Ray ray = new Ray();
+
+        for (int i = 0; i < posNodes.transform.childCount; i ++){
+            Transform tra = posNodes.transform.GetChild(i);
+            Ray ray = new Ray(tra.position, Vector3.up);
+            //RaycastHit hit;
+            //if (){
+
+            //}
+        }
+
         Global.GetInstance().SetEnemyController(this);
     }
     private void Update()

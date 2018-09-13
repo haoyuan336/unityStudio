@@ -27,11 +27,11 @@ public class GameController : MonoBehaviour
         //进入游戏的时候 先读取xml数据 取出关卡数据
         //根据当前的关卡数，初始化场景levelLabel
 
-        int level = Global.GetInstance().GetLevelNum();
+        //int level = Global.GetInstance().GetLevelNum();
 
         Global.GetInstance().SetCanvas(canvas);
 
-        map = Instantiate(mapPrefabs[level]);
+        //map = Instantiate(mapPrefabs[level]);
         //Global.
 
       

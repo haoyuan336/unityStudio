@@ -8,17 +8,17 @@ public class UIController : MonoBehaviour {
     // Use this for initialization
     private GameObject currentMenu;
     private Transform currentTower;
-    public GameObject topBarPrefab;
-    public GameObject topBarPos;
+    //public GameObject topBarPrefab;
+    //public GameObject topBarPos;
     //private GameObject topBar;
 	void Start () {
         Global.GetInstance().SetUIController(this);
-        GameObject topBar = Instantiate(topBarPrefab);
-        topBar.transform.parent = Global.GetInstance().GetCanvas().transform;
+        //GameObject topBar = Instantiate(topBarPrefab);
+        //topBar.transform.parent = Global.GetInstance().GetCanvas().transform;
         //topBar.transform.position = Vector2.zero;
-        Vector3 p = Camera.main.WorldToScreenPoint(topBarPos.transform.position);
-        Debug.Log("top bar p =  " + p);
-        topBar.transform.position = p;
+        //Vector3 p = Camera.main.WorldToScreenPoint(topBarPos.transform.position);
+        //Debug.Log("top bar p =  " + p);
+        //topBar.transform.position = p;
 	}
 	
 	// Update is called once per frame
