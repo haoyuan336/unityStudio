@@ -31,12 +31,12 @@ public class TowerController : MonoBehaviour {
             if (Physics.Raycast(ray, out hit, 100.0f, 1)){
                 Debug.Log("Tower conotroller = ");
                 if (hit.transform.tag == "Earth"){
-                    towerBasePosNodes.transform.GetChild(i).transform.position = hit.point - new Vector3(0, 1,0);
+                    towerBasePosNodes.transform.GetChild(i).transform.position = hit.point - new Vector3(0, 0.8f,0);
                     var obj = Instantiate(towerBasePrefab);
                     obj.transform.parent = transform;
                     obj.transform.position = towerBasePosNodes.transform.GetChild(i).transform.position;
                     towerBaseList.Add(obj);
-
+                    obj.transform.Rotate(hit.normal * 180/Mathf.PI, Space.World);
                     //Vector3 centerPoint = hit.transform.GetComponent<SphereCollider>().center;
                     //obj.transform.LookAt(centerPoint);
                     //obj.transform.Rotate(Vector3.left * 90);

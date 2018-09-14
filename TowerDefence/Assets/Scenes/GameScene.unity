@@ -150,6 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 48385188}
   - component: {fileID: 48385189}
+  - component: {fileID: 48385190}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Earth
@@ -183,10 +184,24 @@ SphereCollider:
   m_GameObject: {fileID: 48385187}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 38.888
-  m_Center: {x: 0, y: -34, z: 0}
+  m_Radius: 38.544556
+  m_Center: {x: 0, y: -34.343445, z: 0}
+--- !u!64 &48385190
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 48385187}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 002804f7851964638b716c4e322aee3d, type: 3}
 --- !u!1 &53696582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1055,16 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 10.329
       objectReference: {fileID: 0}
+    - target: {fileID: 64509926867921442, guid: 01f585040a083ec458caf38381c29bc9,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64509926867921442, guid: 01f585040a083ec458caf38381c29bc9,
+        type: 2}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01f585040a083ec458caf38381c29bc9, type: 2}
   m_IsPrefabAsset: 0
@@ -1225,7 +1250,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 778507888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.74, y: 0.44, z: -5.35}
+  m_LocalPosition: {x: 1.26, y: 4.28, z: 2.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 919483121}
