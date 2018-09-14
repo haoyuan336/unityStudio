@@ -31,15 +31,42 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
 
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //RaycastHit hit;
+        //if (Physics.Raycast(ray, out hit, 100f, 1))
+        //{
+        //    if (hit.transform.tag == "TowerBase")
+        //    {
+        //        hit.transform.GetComponent<TowerBase>().OnUpBase();
+        //        if (Input.GetMouseButton(0))
+        //        {
+        //            hit.transform.GetComponent<TowerBase>().ClickBase();
+        //        }
+        //        if (Input.GetMouseButtonDown(0))
+        //        {
+        //            hit.transform.GetComponent<TowerBase>().ClickDownBase();
+        //        }
+        //    }
+        //    if (hit.transform.tag == "Tower")
+        //    {
+        //        hit.transform.GetComponent<Tower>().OnUpTower();
+
+        //    }
+
+        //}
+
         //Ray ray = new Ray();
 
         for (int i = 0; i < posNodes.transform.childCount; i ++){
             Transform tra = posNodes.transform.GetChild(i);
-            Ray ray = new Ray(tra.position, Vector3.up);
-            //RaycastHit hit;
-            //if (){
-
-            //}
+            Ray ray = new Ray(tra.position, Vector3.down);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 100.0f, 1)){
+                if (hit.transform.tag == "Earth"){
+                    Debug.Log("Hit eaeth" + hit.point);
+                    posNodes.transform.GetChild(i).transform.position = hit.point;
+                }
+            }
         }
 
         Global.GetInstance().SetEnemyController(this);
