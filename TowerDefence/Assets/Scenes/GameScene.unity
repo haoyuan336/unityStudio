@@ -150,6 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 48385188}
   - component: {fileID: 48385189}
+  - component: {fileID: 48385191}
   - component: {fileID: 48385190}
   m_Layer: 0
   m_Name: Terrain
@@ -184,7 +185,7 @@ SphereCollider:
   m_GameObject: {fileID: 48385187}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 38.544556
   m_Center: {x: 0, y: -34.343445, z: 0}
@@ -196,12 +197,19 @@ MeshCollider:
   m_GameObject: {fileID: 48385187}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300004, guid: 002804f7851964638b716c4e322aee3d, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 002804f7851964638b716c4e322aee3d, type: 3}
+--- !u!33 &48385191
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 48385187}
+  m_Mesh: {fileID: 4300002, guid: 002804f7851964638b716c4e322aee3d, type: 3}
 --- !u!1 &53696582
 GameObject:
   m_ObjectHideFlags: 0
