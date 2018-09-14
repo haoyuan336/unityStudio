@@ -27,15 +27,15 @@ public class GameTool
             earthName = content.SelectSingleNode("EarthName").InnerText;
             foreach (XmlElement xm in levels)
             {
-                Debug.Log("level id = " + xm.GetAttribute("id"));
+                //Debug.Log("level id = " + xm.GetAttribute("id"));
                 XmlNode textNode = xm.SelectSingleNode("text");
                 XmlNodeList waveNodes = xm.SelectNodes("wave");
-                Debug.Log("text =" + textNode.InnerText);
+                //Debug.Log("text =" + textNode.InnerText);
                 XmlNode levelTips = xm.SelectSingleNode("LevelTips");
                 List<Wave> waveList = new List<Wave>();
                 foreach (XmlElement waveXm in waveNodes)
                 {
-                    Debug.Log("Wave id = " + waveXm.GetAttribute("id"));
+                    //Debug.Log("Wave id = " + waveXm.GetAttribute("id"));
                     //Level list = new Level(wave);
                     XmlNode type = waveXm.SelectSingleNode("type");
                     XmlNode count = waveXm.SelectSingleNode("count");

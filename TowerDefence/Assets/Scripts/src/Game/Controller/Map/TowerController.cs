@@ -22,14 +22,42 @@ public class TowerController : MonoBehaviour {
         isRunning = true;
         //targetMask = LayerMask.GetMask("target");
         //towerBasePosNodes = transform.GetComponent<GameController>().map.transform.GetComponent<Maps>().GetTowerBaseNodes();
-        for (var i = 0; i < towerBasePosNodes.transform.childCount; i ++){
-            var obj = Instantiate(towerBasePrefab);
-            obj.transform.parent = transform;
-            obj.transform.position = towerBasePosNodes.transform.GetChild(i).transform.position;
-            towerBaseList.Add(obj);
-            //obj.GetComponent<TowerBase>().setControllerAndGameController(transform, controller);
+      
+
+        for (int i = 0; i < towerBasePosNodes.transform.childCount; i ++){
+            Transform tra = towerBasePosNodes.transform.GetChild(i);
+            Ray ray = new Ray(tra.position, Vector3.down);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 100.0f, 1)){
+                Debug.Log("Tower conotroller = ");
+                if (hit.transform.tag == "Earth"){
+                    towerBasePosNodes.transform.GetChild(i).transform.position = hit.point - new Vector3(0, 1,0);
+                    var obj = Instantiate(towerBasePrefab);
+                    obj.transform.parent = transform;
+                    obj.transform.position = towerBasePosNodes.transform.GetChild(i).transform.position;
+                    towerBaseList.Add(obj);
+
+                    //Vector3 centerPoint = hit.transform.GetComponent<SphereCollider>().center;
+                    //obj.transform.LookAt(centerPoint);
+                    //obj.transform.Rotate(Vector3.left * 90);
+
+                    //Vector3 cro = Vector3.Cross(hit.point, Vector3.up);
+
+
+                    //obj.transform.rotation = Quaternion.AngleAxis(Mathf.PI, cro) * obj.transform.rotation;
+                    //obj.transform.LookAt(Vector3.zero);
+                }
+            }
         }
-	}
+        //for (var i = 0; i < towerBasePosNodes.transform.childCount; i++)
+        //{
+        //    var obj = Instantiate(towerBasePrefab);
+        //    obj.transform.parent = transform;
+        //    obj.transform.position = towerBasePosNodes.transform.GetChild(i).transform.position;
+        //    towerBaseList.Add(obj);
+        //    //obj.GetComponent<TowerBase>().setControllerAndGameController(transform, controller);
+        //}
+    }
 	
 	// Update is called once per frame
 	void Update () {

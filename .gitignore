@@ -1,4 +1,4 @@
-
+TowerDefence/obj/
 TowerDefence/Temp/
 TowerDefence/Library/
 TowerDefence/[Ll]ibrary/
@@ -31,3 +31,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+TowerDefence/.vs

@@ -63,7 +63,7 @@ public class EnemyController : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100.0f, 1)){
                 if (hit.transform.tag == "Earth"){
-                    Debug.Log("Hit eaeth" + hit.point);
+                    //Debug.Log("Hit eaeth" + hit.point);
                     posNodes.transform.GetChild(i).transform.position = hit.point;
                 }
             }
