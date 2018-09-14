@@ -1,5 +1,7 @@
-/TowerDefence/Library
-/[Ll]ibrary/
+
+TowerDefence/Temp/
+TowerDefence/Library/
+TowerDefence/[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
