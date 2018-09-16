@@ -46,6 +46,9 @@ public class TowerBase : MonoBehaviour
     public void ClickEndBase()
     {
     }
+    Vector3 GetEuler(){
+        return transform.eulerAngles;
+    }
     //public void setControllerAndGameController(Transform ctl, Transform ctl2){
     //    //controller = ctl;
     //    //gameController = ctl2;

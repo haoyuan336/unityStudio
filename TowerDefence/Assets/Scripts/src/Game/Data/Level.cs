@@ -15,6 +15,8 @@ public class Level
     public List<Wave> waveList;
     public string levelText;
     public string levelTips;
+    public bool isLock = true;
+    public int startCount; 
     public Level(List<Wave> list, string text)
     {
         waveList = list;

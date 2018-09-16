@@ -164,6 +164,7 @@ public class Global
     }
     public void EnterChooseTowerScene(int level)
     {
+        Debug.Log("Global choose Tower scene level = " + level);
         currentLevelNum = level;
         SceneManager.LoadScene("ChooseTower");
     }

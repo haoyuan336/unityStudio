@@ -17,7 +17,6 @@ public class GameTool
     }
     public void ReadLevelXml(string path)
     {
-        Debug.Log("Read xml path = " + path);
         if (File.Exists(path))
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -44,6 +43,11 @@ public class GameTool
                 }
                 Level level = new Level(waveList, textNode.InnerText);
                 level.SetLevelTips(levelTips.InnerText);
+                //取出关卡是否解锁了
+                level.isLock = bool.Parse(xm.SelectSingleNode("Lock").InnerText);
+                //取出当前关卡里面得到了几颗星
+                level.startCount = int.Parse(xm.SelectSingleNode("Start").InnerText);
+
                 levelList.Add(level);
             }
         }
@@ -55,11 +59,10 @@ public class GameTool
     {
         if (!File.Exists(filePath))
         {
-            Debug.Log("没找到此文件");
             //创建xml
             XmlDocument xmlDoc = new XmlDocument();
             //创建根阶段
-            XmlElement root = xmlDoc.CreateElement("transforms");
+            //XmlElement root = xmlDoc.CreateElement("transforms");
             //创建第一个子节点
             //XmlElement elmXml = xmlDoc.CreateElement("rotation");
             ////设置节点属性
@@ -109,7 +112,6 @@ public class GameTool
             xmlDoc.Load(path);
             XmlNodeList towerXmlList = xmlDoc.SelectSingleNode("content").ChildNodes;
             //XmlNodeList towerXmlList = content.SelectNodes("Tower");
-            Debug.Log("tower xml list = " + towerXmlList.Count);
             foreach (XmlNode towerXml in towerXmlList)
             {
                 XmlNode tyXml = towerXml.SelectSingleNode("Type");

@@ -2,19 +2,23 @@
 <content>
     <EarthName>勇者星球</EarthName>
     <level id="0" name="level">
+        <Lock>true</Lock>
+        <Start>0</Start>
         <text>有种你别走!</text>
         <LevelTips>这关比较难哦！</LevelTips>
         <wave id="0">
             <type>0</type>
-            <count>5</count>
+            <count>50</count>
         </wave>
         <wave id="0">
             <type>0</type>
-            <count>3</count>
+            <count>30</count>
         </wave>
       
     </level>
     <level id="1" name="level">
+        <Lock>true</Lock>
+        <Start>0</Start>
         <LevelTips>这关比较难哦！</LevelTips>
         <text>有种你别走!</text>
         <wave id="0">

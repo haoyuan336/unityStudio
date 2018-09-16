@@ -28,7 +28,9 @@ public class BuildTowerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (towerBase !=null){
+            transform.position = Camera.main.WorldToScreenPoint(towerBase.transform.position);
+        }
     }
     public void buttonClick(int towerId)
     {

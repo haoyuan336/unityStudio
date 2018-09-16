@@ -16,10 +16,10 @@
     <SellGold>70</SellGold>
     <SellGold>100</SellGold>
     <SellGold>200</SellGold>
-    <AttackRange>3</AttackRange>
-    <AttackRange>3.5</AttackRange>
-    <AttackRange>4.2</AttackRange>
+    <AttackRange>4</AttackRange>
+    <AttackRange>4.5</AttackRange>
     <AttackRange>5.2</AttackRange>
+    <AttackRange>6.2</AttackRange>
     <AttackDamage>1</AttackDamage>
     <AttackDamage>2</AttackDamage>
     <AttackDamage>3</AttackDamage>
@@ -45,10 +45,10 @@
     <SellGold>100</SellGold>
     <SellGold>180</SellGold>
     <SellGold>300</SellGold>
-    <AttackRange>3</AttackRange>
-    <AttackRange>3.5</AttackRange>
-    <AttackRange>4.2</AttackRange>
+    <AttackRange>4</AttackRange>
+    <AttackRange>4.5</AttackRange>
     <AttackRange>5.2</AttackRange>
+    <AttackRange>6.2</AttackRange>
     <AttackDamage>2</AttackDamage>
     <AttackDamage>4</AttackDamage>
     <AttackDamage>6</AttackDamage>

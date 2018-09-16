@@ -35,7 +35,6 @@ public class TowerData
                 break;
             case "UpdateCost":
 
-                Debug.Log("update cost = " + valueList);
                 updateCostList = new List<float>();
                 foreach(string v in valueList){
                     updateCostList.Add(float.Parse(v));

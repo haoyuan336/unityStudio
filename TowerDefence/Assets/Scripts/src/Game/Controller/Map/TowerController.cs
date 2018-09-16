@@ -29,14 +29,14 @@ public class TowerController : MonoBehaviour {
             Ray ray = new Ray(tra.position, Vector3.down);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100.0f, 1)){
-                Debug.Log("Tower conotroller = ");
                 if (hit.transform.tag == "Earth"){
-                    towerBasePosNodes.transform.GetChild(i).transform.position = hit.point - new Vector3(0, 0.8f,0);
+                    towerBasePosNodes.transform.GetChild(i).transform.position = hit.point + Vector3.up * 0.2f;
                     var obj = Instantiate(towerBasePrefab);
                     obj.transform.parent = transform;
                     obj.transform.position = towerBasePosNodes.transform.GetChild(i).transform.position;
                     towerBaseList.Add(obj);
                     obj.transform.Rotate(hit.normal * 180/Mathf.PI, Space.World);
+
                     //Vector3 centerPoint = hit.transform.GetComponent<SphereCollider>().center;
                     //obj.transform.LookAt(centerPoint);
                     //obj.transform.Rotate(Vector3.left * 90);
@@ -107,6 +107,7 @@ public class TowerController : MonoBehaviour {
         tower.transform.parent = transform;
         tower.transform.position =   tb.position + Vector3.up * 0.5f;
         tower.transform.GetComponent<Tower>().SetController(transform);
+        tower.transform.GetComponent<Tower>().SetTowerBase(tb);
         towerList.Add(tower);
         //Debug.Log("Build one Tower = " + id);
         //GameObject obj = Instantiate(this.towerPrefabs[id]);

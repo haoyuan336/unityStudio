@@ -13,9 +13,6 @@ public class Wave
         int.TryParse(type, out enemyType);
         int.TryParse(count, out enemyCount);
 
-
-        Debug.Log("Wave Type = " + enemyType);
-        Debug.Log("Count = " + enemyCount);
     }
 
 }

@@ -9,7 +9,7 @@ public class GameLocalData
     private List<int> updateTowerPosCostList = new List<int>(); //每一个tower的位置需要的金币个数
     private List<float> towerLevelPlusList = new List<float>(); //每一个等级的 增益值
     private List<int> updateTowerLevelCostList = new List<int>(); //每一个等级需要花费的金币个数
-
+    private int currentEarthIndex = 0;
     public GameLocalData()
     {
 
@@ -67,6 +67,7 @@ public class GameLocalData
             {
                 updateTowerLevelCostList.Add(int.Parse(xml.InnerText));
             }
+            currentEarthIndex = int.Parse(rootNode.SelectSingleNode("CurrentEarthIndex").InnerText);
         }
     }
 
@@ -119,4 +120,17 @@ public class GameLocalData
         return towerLevelPlusList[level];
     }
    
+    public int GetCurrentEarthIndex(){
+        //得到当前的地球的列表
+        return currentEarthIndex;
+    }
+    public void SetCurrentEarthIndex(int index){
+        //将当前选择的星球的ID 储存在本地
+        currentEarthIndex = index;
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.Load(gameDataPath);
+        XmlNode rootNode = xmlDoc.SelectSingleNode("content");
+        rootNode.SelectSingleNode("CurrentEarthIndex").InnerText = index.ToString();
+        xmlDoc.Save(gameDataPath);
+    }
 }

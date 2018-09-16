@@ -30,7 +30,7 @@ public class Tower : MonoBehaviour
     //当前tower的等级
     private int currentLevel;
     private TowerData towerData;
-
+    private Transform towerBase;
     private enum TowerState{
         Invalide, Wait,Running,End
     }
@@ -56,6 +56,26 @@ public class Tower : MonoBehaviour
         towerData = Global.GetInstance().GetTowerData(towerType);
         levelLabel.transform.GetComponent<Text>().text = towerData.GetTowerName(currentLevel) + ":" + (currentLevel + 1).ToString();
 
+
+        //在唤醒的时候 ，调整一下 tower 的位置 ，可以贴合地形的方式  
+
+        //第一步 创建一条向下的 射线
+        //Ray ray = new Ray(transform.position + Vector3.up * 10, Vector3.down);
+        //RaycastHit hit;
+        //if (Physics.Raycast(ray, out hit, 100.0f,1)){
+        //    if (hit.transform.tag == "Earth"){
+        //        //如果碰到的是地球 。那么对
+        //        Debug.Log("Tower ray hit object");
+        //        transform.Rotate(hit.normal * 180 / Mathf.PI, Space.World);
+        //    }
+        //}
+
+
+    }
+    public void SetTowerBase(Transform tb){
+        //设置tower 的基座，根据tower的基座的 指向角度，来设置塔的指向的角度
+        towerBase = tb;
+        transform.Rotate(towerBase.eulerAngles, Space.World);
     }
     public void SetController(Transform ctl)
     {
@@ -69,7 +89,9 @@ public class Tower : MonoBehaviour
         if (state == TowerState.Running){
             AttackLogic();
         }
-       
+
+        levelLabel.transform.position = Camera.main.WorldToScreenPoint(levelLabelPos.transform.position);
+
 
     }
 
@@ -96,7 +118,16 @@ public class Tower : MonoBehaviour
         {
             targetVector = new Vector3(attackTarget.transform.position.x, transform.position.y, attackTarget.transform.position.z);
             currentVector = Vector3.MoveTowards(currentVector, targetVector, Vector3.Distance(currentVector, targetVector) * 0.2f);
-            transform.LookAt(currentVector);
+            //transform.LookAt(currentVector);
+
+
+
+            Vector3 zexV =   transform.position - towerBase.position;
+            float angle = Vector3.Angle(currentVector - transform.position, Vector3.forward);
+            Quaternion quaternion = Quaternion.AngleAxis(angle, zexV);
+            transform.rotation = quaternion;
+
+
             float dis = Vector3.Distance(transform.position, attackTarget.transform.position);
 
             if (dis > towerData.GetAttackRange(currentLevel))
@@ -187,7 +218,7 @@ public class Tower : MonoBehaviour
     public int GetCurrentTowerLevel(){
         return currentLevel;
     }
-    public void OnDestroy()
+     void OnDestroy()
     {
         Destroy(levelLabel);
     }
