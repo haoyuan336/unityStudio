@@ -112,32 +112,32 @@ public class ChooseLevelController : MonoBehaviour
 
             if (isTouching){
                 Vector3 director = Input.mousePosition - touchPos;
-                Vec2 v1 = new Vec2(Camera.main.transform.position.x, Camera.main.transform.position.z) - new Vec2(currentEarth.transform.position.x, currentEarth.transform.position.z);
+                Vec2 v1 = new Vec2(Camera.main.transform.position.x, Camera.main.transform.position.z) 
+                    - new Vec2(currentEarth.transform.position.x, currentEarth.transform.position.z);
+
                 float dis = Vector3.Distance(Camera.main.transform.position, currentEarth.transform.position);
-                Vec2 endV =  Vec2.MultiValue(Vec2.Rotate(v1, director.x *  - 0.005f).GetNormal(), 20);
+                Vec2 endXV =  Vec2.MultiValue(Vec2.Rotate(v1, director.x *  - 0.005f).GetNormal(), 20);
 
-                //Debug.Log("end v = " + endV.x + "  " + endV.y);
-                //Vec2 v2 = new Vec2(Camera.main.transform.position.y, Camera.main.transform.position.z);
-                //Debug.Log("v2 = " + v2.x + " " + v2.y);
-                //Vec2 endV2 = Vec2.MultiValue(Vec2.Rotate(v2, director.y * -0.005f).GetNormal(), dis);
+                Vec2 v2 = new Vec2(Camera.main.transform.position.x, Camera.main.transform.position.y) 
+                    - new Vec2(currentEarth.transform.position.x, currentEarth.transform.position.y);
 
-                //Vector3 endV3 = (new Vector3(endV.x, 0, endV.y) + new Vector3(0, endV2.x, endV2.y)) / 2;
-
-
-                //Camera.main.transform.position = endV3;
-
-                Camera.main.transform.position = currentEarth.transform.position + new Vector3(endV.x, 0, endV.y);
+                Vec2 endYV = Vec2.MultiValue(Vec2.Rotate(v2, director.y * - 0.005f).GetNormal(), 20);
 
 
 
-
-
+                Camera.main.transform.position = currentEarth.transform.position + new Vector3(endXV.x, 0 , endXV.y);
                 Camera.main.transform.LookAt(currentEarth.transform.position);
 
-
-
-
                 touchPos = Input.mousePosition;
+            }else{
+
+
+                //摄像机自己旋转的代码哦
+                Vec2 v1 = new Vec2(Camera.main.transform.position.x, Camera.main.transform.position.z) -
+                    new Vec2(currentEarth.transform.position.x, currentEarth.transform.position.z);
+                Vec2 endV = Vec2.MultiValue(Vec2.Rotate(v1, Time.deltaTime * 0.01f).GetNormal(), 20);
+                Camera.main.transform.position = currentEarth.transform.position + new Vector3(endV.x, 0, endV.y);
+                Camera.main.transform.LookAt(currentEarth.transform.position);
             }
 
         }

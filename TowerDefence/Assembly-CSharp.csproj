@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\src\ChooseLevel\ChooseLevelTopBar.cs" />
     <Compile Include="Assets\Scripts\src\ChooseLevel\Earth.cs" />
     <Compile Include="Assets\Scripts\src\ChooseLevel\LevelButton.cs" />
+    <Compile Include="Assets\Scripts\src\ChooseLevel\Ufo.cs" />
     <Compile Include="Assets\Scripts\src\ChooseTower\CheTwrCtl.cs" />
     <Compile Include="Assets\Scripts\src\ChooseTower\ChooseTowerIconPosCtl.cs" />
     <Compile Include="Assets\Scripts\src\ChooseTower\ChooseTowerInfo.cs" />
