@@ -16,6 +16,7 @@ public class ChooseLevelController : MonoBehaviour
     private GameObject currentEarth;
     private Vector3 touchPos;
     private Vector3 lookAtPosition;
+
     enum CameraState{
         Wait,Ready,MoveToOther
     }
@@ -38,7 +39,7 @@ public class ChooseLevelController : MonoBehaviour
         //    obj.transform.GetComponent<LevelButton>().Init(canvas,i);
         //    levelButtonList.Add(obj);
         //}
-
+        Global.GetInstance().SetCanvas(canvas.GetComponent<Canvas>());
         //取出当前的 地球
         currentEarth = earthList[Global.GetInstance().GetLocalData().GetCurrentEarthIndex()];
         Camera.main.transform.position = currentEarth.transform.position + Vector3.back * 20;
