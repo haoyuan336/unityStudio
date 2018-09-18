@@ -7,9 +7,11 @@ public class Earth : MonoBehaviour
     public int earthIndex;
     public float rotationSpeed;
     public GameObject levelButtonPrefab;
+    //public GameObject canvas;
     // Use this for initialization
     private RaycastHit raycastHit;
     private List<Transform> levelIconBases = new List<Transform>();
+
     void Start()
     {
         for (int i = 0; i < transform.childCount; i++)
