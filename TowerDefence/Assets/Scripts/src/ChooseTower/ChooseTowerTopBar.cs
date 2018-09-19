@@ -12,7 +12,7 @@ public class ChooseTowerTopBar : MonoBehaviour {
     public GameObject diamondCountLabel;
 	void Start () {
         Global.GetInstance().SetChooseTowerTopBar(this);
-        earthNameLabel.transform.GetComponent<Text>().text = Global.GetInstance().GetEarthName();
+        //earthNameLabel.transform.GetComponent<Text>().text = Global.GetInstance().GetEarthName();
         levelNumLabel.transform.GetComponent<Text>().text = "Level:" + (Global.GetInstance().GetLevelNum() + 1).ToString();
         levelTipsLabel.transform.GetComponent<Text>().text = Global.GetInstance().GetCurrentLevel().levelTips;
         diamondCountLabel.transform.GetComponent<Text>().text ="Diamond:" + Global.GetInstance().GetLocalData().GetDiamondCount().ToString();

@@ -11,7 +11,7 @@ public class TopBar : MonoBehaviour {
     public GameObject levelTextLabel;
     public GameObject currentGoldLabel; 
 	void Start () {
-        earthNameLabel.GetComponent<Text>().text = Global.GetInstance().GetEarthName();
+        //earthNameLabel.GetComponent<Text>().text = Global.GetInstance().GetEarthName();
         levelNumLabel.GetComponent<Text>().text = "Level:" + (Global.GetInstance().GetLevelNum() + 1).ToString();
         levelTextLabel.GetComponent<Text>().text = Global.GetInstance().GetCurrentLevel().levelText;
         Global.GetInstance().SetTopBar(this);

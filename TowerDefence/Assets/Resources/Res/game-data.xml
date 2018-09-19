@@ -2,7 +2,7 @@
   <ChooseTowerCount>4</ChooseTowerCount>
   <DiamondCount>953</DiamondCount>
   <!--  升级塔的位置需要的钻石个数  -->
-  <CurrentEarthIndex>0</CurrentEarthIndex>  
+  <CurrentEarthIndex>0</CurrentEarthIndex>
   <UpdateTowerPosCountCostDiamond>
     <Pos>0</Pos>
     <Pos>0</Pos>

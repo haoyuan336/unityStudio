@@ -118,10 +118,10 @@ public class Global
         //return currentLevel;
         return tool.GetLevelList()[currentLevelNum];
     }
-    public string GetEarthName()
-    {
-        return tool.earthName;
-    }
+    //public string GetEarthName()
+    //{
+    //    return tool.earthName;
+    //}
     public TowerData GetTowerData(int index)
     {
         return tool.towerDataList[index];

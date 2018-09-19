@@ -8,7 +8,7 @@ public class GameTool
 
     private List<Level> levelList;
     public Level currentLevel;
-    public string earthName;
+    //public string earthName;
     public List<TowerData> towerDataList;
     public GameTool()
     {
@@ -23,7 +23,7 @@ public class GameTool
             xmlDoc.Load(path);
             XmlNode content = xmlDoc.SelectSingleNode("content");
             XmlNodeList levels = content.SelectNodes("level");
-            earthName = content.SelectSingleNode("EarthName").InnerText;
+            //earthName = content.SelectSingleNode("EarthName").InnerText;
             foreach (XmlElement xm in levels)
             {
                 //Debug.Log("level id = " + xm.GetAttribute("id"));

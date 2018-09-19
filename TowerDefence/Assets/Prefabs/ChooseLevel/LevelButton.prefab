@@ -38,9 +38,10 @@ GameObject:
   - component: {fileID: 4939712753795296}
   - component: {fileID: 95111336715813618}
   - component: {fileID: 114370825201805158}
+  - component: {fileID: 136505375450737122}
   m_Layer: 0
   m_Name: LevelButton
-  m_TagString: Untagged
+  m_TagString: LevelButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1630877011596158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.1, z: 0}
+  m_LocalPosition: {x: 0, y: 2.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4939712753795296}
@@ -392,6 +393,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelTextPos: {fileID: 1630877011596158}
-  levelTextPrefab: {fileID: 1663556794074792, guid: 3db85c94d06924ac487f4ffe2d6a8f27,
+  levelTextPrefab: {fileID: 1719704852198370, guid: b14b7033c75774b6796833d93563ca51,
     type: 2}
   body: {fileID: 1951138252697880}
+  starLabelPrefab: {fileID: 1813957344582860, guid: 13676f5677fd243c8be8ba676b39fd77,
+    type: 2}
+--- !u!136 &136505375450737122
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1350348875096802}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.7783846
+  m_Height: 3.9355488
+  m_Direction: 1
+  m_Center: {x: -0.056817234, y: 1.8465557, z: -0.27461603}

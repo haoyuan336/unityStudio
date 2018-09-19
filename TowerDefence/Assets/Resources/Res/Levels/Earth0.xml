@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <content>
-    <EarthName>勇者星球</EarthName>
+    <CurrentLevelIndex>0</CurrentLevelIndex>>
     <level id="0" name="level">
         <Lock>true</Lock>
         <Start>0</Start>

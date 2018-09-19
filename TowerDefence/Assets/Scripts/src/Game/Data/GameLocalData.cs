@@ -10,32 +10,10 @@ public class GameLocalData
     private List<float> towerLevelPlusList = new List<float>(); //每一个等级的 增益值
     private List<int> updateTowerLevelCostList = new List<int>(); //每一个等级需要花费的金币个数
     private int currentEarthIndex = 0;
+    private List<EarthData>  earthDatas = new List<EarthData>();
     public GameLocalData()
     {
-
-        //Debug.Log("没找到此文件");
-        ////创建xml
-        //XmlDocument xmlDoc = new XmlDocument();
-        ////创建根阶段
-        //XmlElement root = xmlDoc.CreateElement("transforms");
-        ////创建第一个子节点
-        ////XmlElement elmXml = xmlDoc.CreateElement("rotation");
-        //////设置节点属性
-        ////elmXml.SetAttribute("id", "0");
-        ////elmXml.SetAttribute("name", "first");
-        //////创建第一个子节点的子节点
-        //////XmlElement rotation_x = xmlDoc.CreateElement("x");
-        //////rotation_x.InnerText = "0";
-        //////XmlElement rotation_y = xmlDoc.CreateElement("y");
-        //////rotation_y.InnerText = "0";
-        //////XmlElement rotation_z = xmlDoc.CreateElement("z");
-        //////rotation_z.InnerText = "0";
-        //////elmXml.AppendChild(rotation_x);
-        //////elmXml.AppendChild(rotation_y);
-        //////elmXml.AppendChild(rotation_z);
-        ////root.AppendChild(elmXml);
-        ////xmlDoc.AppendChild(root);
-        //xmlDoc.Save(filePath);
+       
 
         if (!File.Exists(gameDataPath)){
             XmlDocument xmlDoc = new XmlDocument();
@@ -68,6 +46,13 @@ public class GameLocalData
                 updateTowerLevelCostList.Add(int.Parse(xml.InnerText));
             }
             currentEarthIndex = int.Parse(rootNode.SelectSingleNode("CurrentEarthIndex").InnerText);
+        }
+
+
+        for (int i = 0; i < 3; i ++){
+            EarthData earthData = new EarthData();
+            earthData.LoadEarthData(i);
+            earthDatas.Add(earthData);
         }
     }
 
@@ -132,5 +117,9 @@ public class GameLocalData
         XmlNode rootNode = xmlDoc.SelectSingleNode("content");
         rootNode.SelectSingleNode("CurrentEarthIndex").InnerText = index.ToString();
         xmlDoc.Save(gameDataPath);
+    }
+   
+    public EarthData GetEarthDataWithIndex(int value){
+        return earthDatas[value];
     }
 }

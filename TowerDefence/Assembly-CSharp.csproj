@@ -101,6 +101,7 @@
     <Compile Include="Assets\Scripts\src\Game\Controller\Map\MapController.cs" />
     <Compile Include="Assets\Scripts\src\Game\Controller\Map\TowerController.cs" />
     <Compile Include="Assets\Scripts\src\Game\Controller\Map\UIController.cs" />
+    <Compile Include="Assets\Scripts\src\Game\Data\EarthData.cs" />
     <Compile Include="Assets\Scripts\src\Game\Data\GameLocalData.cs" />
     <Compile Include="Assets\Scripts\src\Game\Data\Level.cs" />
     <Compile Include="Assets\Scripts\src\Game\Data\TowerData.cs" />
@@ -115,12 +116,16 @@
     <Compile Include="Assets\Scripts\src\UI\BuildTowerUI.cs" />
     <Compile Include="Assets\Scripts\src\UI\GameOverUI.cs" />
     <Compile Include="Assets\Scripts\src\UI\GameWinUI.cs" />
+    <Compile Include="Assets\Scripts\src\UI\ImageNum.cs" />
     <Compile Include="Assets\Scripts\src\UI\MoveUpText.cs" />
     <Compile Include="Assets\Scripts\src\UI\ProgressBar.cs" />
+    <Compile Include="Assets\Scripts\src\UI\StarLabel.cs" />
     <Compile Include="Assets\Scripts\src\UI\TopBar.cs" />
     <Compile Include="Assets\Scripts\src\UI\TowerIconButton.cs" />
     <Compile Include="Assets\Scripts\src\UI\UpdateTowerUI.cs" />
     <Compile Include="Assets\Simple UI\Samples\IconPreview.cs" />
+    <None Include="Assets\Resources\Res\Levels\Earth1.xml" />
+    <None Include="Assets\Resources\Res\Levels\Earth2.xml" />
     <None Include="Assets\Resources\Res\game-data.xml" />
     <None Include="Assets\Resources\Res\Levels\test1.xml" />
     <None Include="Assets\Simple UI\Fonts\OFL.txt" />

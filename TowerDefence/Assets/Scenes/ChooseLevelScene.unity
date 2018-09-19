@@ -540,6 +540,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 24eade1db848a41f490c9a217fba34b9, type: 3}
+      propertyPath: m_TagString
+      value: Earth
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 24eade1db848a41f490c9a217fba34b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 24eade1db848a41f490c9a217fba34b9, type: 3}
@@ -591,6 +595,10 @@ Prefab:
       propertyPath: m_Name
       value: Earth03
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 24eade1db848a41f490c9a217fba34b9, type: 3}
+      propertyPath: m_TagString
+      value: Earth
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 24eade1db848a41f490c9a217fba34b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 24eade1db848a41f490c9a217fba34b9, type: 3}
@@ -615,6 +623,7 @@ MonoBehaviour:
   rotationSpeed: 0.08
   levelButtonPrefab: {fileID: 1350348875096802, guid: b5cca2e266e09453e9e7da20720965b2,
     type: 2}
+  earthName: "\u7EC8\u7AE0"
 --- !u!135 &336634837
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -841,6 +850,7 @@ MonoBehaviour:
   rotationSpeed: 0.04
   levelButtonPrefab: {fileID: 1350348875096802, guid: b5cca2e266e09453e9e7da20720965b2,
     type: 2}
+  earthName: "\u8D77\u6E90"
 --- !u!1 &1488881303
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,6 +897,7 @@ MonoBehaviour:
   earthList:
   - {fileID: 1113322285}
   - {fileID: 1611647465}
+  - {fileID: 336634835}
 --- !u!1001 &1611647464
 Prefab:
   m_ObjectHideFlags: 0
@@ -934,6 +945,10 @@ Prefab:
       propertyPath: m_Name
       value: Earth02
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 24eade1db848a41f490c9a217fba34b9, type: 3}
+      propertyPath: m_TagString
+      value: Earth
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 24eade1db848a41f490c9a217fba34b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 24eade1db848a41f490c9a217fba34b9, type: 3}
@@ -970,6 +985,7 @@ MonoBehaviour:
   rotationSpeed: 0.08
   levelButtonPrefab: {fileID: 1350348875096802, guid: b5cca2e266e09453e9e7da20720965b2,
     type: 2}
+  earthName: "\u8FDB\u5316"
 --- !u!1 &1693725338
 GameObject:
   m_ObjectHideFlags: 0
