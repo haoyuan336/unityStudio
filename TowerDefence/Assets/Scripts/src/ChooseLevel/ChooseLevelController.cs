@@ -180,7 +180,8 @@ public class ChooseLevelController : MonoBehaviour
             {
                 case CameraState.MoveToOther:
                     //切换星球的时候 重置一下 星球的名字
-                    Global.GetInstance().GetChooseLevelTopBar().SetEarthName(currentEarth.GetComponent<Earth>().GetEarthName());
+                    //Global.GetInstance().GetChooseLevelTopBar().SetEarthName(currentEarth.GetComponent<Earth>().GetEarthName());
+                    Global.GetInstance().GetChooseLevelTopBar().SetEarthNameImage(currentEarth.GetComponent<Earth>().GetEarthNameImage());
                     break;
                 default:
                     break;

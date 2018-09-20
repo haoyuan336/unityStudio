@@ -123,10 +123,11 @@ public class LevelButton : MonoBehaviour
     }
     public void OnMouse()
     {
+        Global.GetInstance().GetChooseLevelTopBar().SetLevelNum(index);
+
         if (isUnLock == UnLockState.UnLock || isUnLock == UnLockState.UnLocking){
             body.transform.GetComponent<Renderer>().material.color = Color.green;
             isOvering = true;
-            Global.GetInstance().GetChooseLevelTopBar().SetLevelNum(index);
         }
  
     }

@@ -8,7 +8,7 @@ public class Earth : MonoBehaviour
     public float rotationSpeed;
     public GameObject levelButtonPrefab;
     public string earthName;
-
+    public Sprite earthNameImage;
     //public GameObject canvas;
     // Use this for initialization
     private RaycastHit raycastHit;
@@ -110,5 +110,8 @@ public class Earth : MonoBehaviour
     }
     public string GetEarthName(){
         return earthName;
+    }
+    public Sprite GetEarthNameImage(){
+        return earthNameImage;
     }
 }
