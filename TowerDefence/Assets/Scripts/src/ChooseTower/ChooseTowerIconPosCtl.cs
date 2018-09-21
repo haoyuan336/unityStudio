@@ -29,11 +29,11 @@ public class ChooseTowerIconPosCtl : MonoBehaviour
 
         if (Global.GetInstance().GetLocalData().GetUpdateNextPosCost(towerPosCount) == -1)
         {
-            updateTowerPosLabel.transform.GetComponent<Text>().text = "增加塔位:Max";
+            //updateTowerPosLabel.transform.GetComponent<Text>().text = "增加塔位:Max";
         }
         else
         {
-            updateTowerPosLabel.transform.GetComponent<Text>().text = "增加塔位:" + Global.GetInstance().GetLocalData().GetUpdateNextPosCost(towerPosCount);
+            //updateTowerPosLabel.transform.GetComponent<Text>().text = "增加塔位:" + Global.GetInstance().GetLocalData().GetUpdateNextPosCost(towerPosCount);
 
         }
 
@@ -44,7 +44,7 @@ public class ChooseTowerIconPosCtl : MonoBehaviour
     {
         //初始化塔位
 
-
+        Debug.Log("初始化 塔位" + count);
         foreach (GameObject img in towerImageList)
         {
             Destroy(img);
@@ -106,7 +106,7 @@ public class ChooseTowerIconPosCtl : MonoBehaviour
     public void AddTowerIconPos(TowerData td)
     {
         //增加一个塔的位置
-
+        Debug.Log("增加一个塔位");
         if (!IsHaveThisType(td.GetTowerType()) && towerIconsList.Count < towerPosList.Count)
         {
             //如果还没有这个tower 的icon  那么就可以创建这个typa

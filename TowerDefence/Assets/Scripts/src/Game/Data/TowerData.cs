@@ -13,7 +13,7 @@ public class TowerData
     //当前tower 的储存在本地的等级,从本地取出来的。
 
     private int currentTowerLevel;
-
+    private string towerBasic;
 
     private List<float> sellGoldList;
     private List<string> towerName;
@@ -133,5 +133,8 @@ public class TowerData
         XmlNode towerNode = rootNode.SelectNodes("Tower")[type]; //取出自己相对应的tower的数据
         towerNode.SelectSingleNode("CurrentLevel").InnerText = currentTowerLevel.ToString();
         xmlDoc.Save(path);
+    }
+    public void SetTowerBasic(string value){
+        towerBasic = value;
     }
 }

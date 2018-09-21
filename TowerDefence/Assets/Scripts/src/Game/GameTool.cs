@@ -119,6 +119,7 @@ public class GameTool
 
                 td.SetCurrentTowerLevel(int.Parse(towerXml.SelectSingleNode("CurrentLevel").InnerText));
                 td.SetSpecialSkillName(towerXml.SelectSingleNode("SpecialSkillName").InnerText);
+                td.SetTowerBasic(towerXml.SelectSingleNode("BasicType").InnerText);
                 //XmlNodeList nodeList = towerXml.SelectNodes("TowerName");
                 //Debug.Log("Node List = " + nodeList.Count);
                 for (int i = 0; i < nameList.Length; i++)

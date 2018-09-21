@@ -90,6 +90,8 @@
     <Compile Include="Assets\Scripts\src\ChooseTower\ChooseTowerIconPosCtl.cs" />
     <Compile Include="Assets\Scripts\src\ChooseTower\ChooseTowerInfo.cs" />
     <Compile Include="Assets\Scripts\src\ChooseTower\ChooseTowerTopBar.cs" />
+    <Compile Include="Assets\Scripts\src\ChooseTower\ToogleButton.cs" />
+    <Compile Include="Assets\Scripts\src\ChooseTower\ToogleButtonGroup.cs" />
     <Compile Include="Assets\Scripts\src\ChooseTower\TowerIcon.cs" />
     <Compile Include="Assets\Scripts\src\ChooseTower\TowerIconPos.cs" />
     <Compile Include="Assets\Scripts\src\Consts.cs" />

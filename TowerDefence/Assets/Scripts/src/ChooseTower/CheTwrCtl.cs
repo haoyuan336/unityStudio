@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum TowerTypes{
+    Damage, Burn, LowSpeed
+}
 public class CheTwrCtl : MonoBehaviour {
     public GameObject towerIconPrefab;
     public GameObject allTowerSVContent;
@@ -63,5 +65,9 @@ public class CheTwrCtl : MonoBehaviour {
         alert.GetComponent<RectTransform>().localPosition = Vector3.zero;
         alert.GetComponent<Alert>().SetCallBack(cb ,value);
 
+    }
+    public void ReferTowerIconWithType(TowerTypes value){
+        //根据传过来的type  来刷新ui
+        Debug.Log("刷新towerIcon的排列顺序" + value);
     }
 }

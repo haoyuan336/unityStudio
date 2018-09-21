@@ -2,6 +2,7 @@
 <content>
   <Tower id="0">
     <Type>0</Type>
+    <BasicType>Damage</BasicType>    
     <!--        当前的等级-->
     <CurrentLevel>2</CurrentLevel>
     <TowerName>小钢炮</TowerName>
@@ -32,6 +33,7 @@
   </Tower>
   <Tower id="1">
     <Type>1</Type>
+    <BasicType>Damage</BasicType>    
     <CurrentLevel>2</CurrentLevel>
     <TowerName>小板砖</TowerName>
     <TowerName>中板砖</TowerName>
@@ -61,6 +63,7 @@
   </Tower>
   <Tower id="2">
     <Type>2</Type>
+    <BasicType>LowSpeed</BasicType>   
     <CurrentLevel>1</CurrentLevel>
     <TowerName>加农炮</TowerName>
     <TowerName>中型加农炮</TowerName>
@@ -90,6 +93,7 @@
   </Tower>
   <Tower id="3">
     <Type>3</Type>
+    <BasicType>Born</BasicType>  
     <CurrentLevel>4</CurrentLevel>
     <TowerName>投石器</TowerName>
     <TowerName>中投石器</TowerName>
